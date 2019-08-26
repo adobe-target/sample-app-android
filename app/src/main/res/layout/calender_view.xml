@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@drawable/bg_calender_popup"
+    android:layout_height="match_parent">
+
+
+    <RelativeLayout
+        android:id="@+id/rlSelectDate"
+        android:layout_width="match_parent"
+        android:padding="5dp"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/btnPrevious"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dp_10"
+            android:layout_marginLeft="@dimen/dp_10"
+            android:src="@drawable/cal_left_arrow"/>
+
+        <TextView
+            android:id="@+id/curDate"
+            android:layout_width="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:textColor="@color/color_2D2D2D"
+            android:layout_height="wrap_content"
+            />
+
+
+        <ImageView
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/dp_10"
+            android:layout_marginRight="@dimen/dp_10"
+            android:src="@drawable/cal_right_arrow"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:id="@+id/llWeekHeading"
+        android:layout_below="@+id/rlSelectDate"
+        android:layout_width="match_parent"
+        android:weightSum="7"
+        android:padding="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/tvSun"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:textColor="@color/color_707070"
+            android:text="@string/str_Sun"
+            />
+
+        <TextView
+            android:id="@+id/tvMon"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/color_707070"
+            android:layout_height="wrap_content"
+            android:text="@string/str_Mon"
+            />
+
+        <TextView
+            android:id="@+id/tvTue"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:textColor="@color/color_707070"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="@string/str_Tue"
+            />
+
+        <TextView
+            android:id="@+id/tvWed"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:textColor="@color/color_707070"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="@string/str_Wed"
+            />
+
+        <TextView
+            android:id="@+id/tvThu"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:textColor="@color/color_707070"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="@string/str_Thu"
+            />
+
+        <TextView
+            android:id="@+id/tvFri"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:layout_gravity="center"
+            android:textColor="@color/color_707070"
+            android:layout_height="wrap_content"
+            android:text="@string/str_Fri"
+            />
+
+        <TextView
+            android:id="@+id/tvSat"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_width="wrap_content"
+            android:textColor="@color/color_707070"
+            android:layout_gravity="center"
+            android:layout_height="wrap_content"
+            android:text="@string/str_Sat"
+            />
+
+    </LinearLayout>
+
+    <GridView
+        android:layout_below="@+id/llWeekHeading"
+        android:id="@+id/gvCalender"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:numColumns="7"/>
+    </RelativeLayout>

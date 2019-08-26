@@ -1,0 +1,26 @@
+package com.wetravel.Models;
+
+import java.util.ArrayList;
+
+public class Loyalty extends BaseModel{
+    public ArrayList<Loyalty> loyalties;
+
+    String id;
+    String name;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+}

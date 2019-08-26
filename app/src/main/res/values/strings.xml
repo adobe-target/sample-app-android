@@ -1,0 +1,59 @@
+<resources>
+    <string name="app_name">WeTravel</string>
+
+    <string name="str_rupee">$</string>
+
+    <string name="str_app_name">We.Travel</string>
+    <string name="str_WhereDo">Where do you want to go?</string>
+    <string name="str_From">FROM</string>
+    <string name="str_To">TO</string>
+    <string name="str_Departure">Departure</string>
+    <string name="str_Eror_Departure">No result for this departure</string>
+    <string name="str_Destination">Destination</string>
+    <string name="str_Eror_Destination">No result for this destination</string>
+    <string name="str_Date">DATE</string>
+    <string name="str_FindBus">FIND BUS</string>
+    <string name="str_Offers">Offers</string>
+    <string name="str_SeeMore">SEE MORE</string>
+    <string name="str_Book">BOOK</string>
+    <string name="str_done">DONE</string>
+    <string name="str_CreditCard">CREDIT CARD</string>
+    <string name="str_DebitCard">DEBIT CARD</string>
+    <string name="str_Paypal">PAYPAL</string>
+    <string name="str_Proceed">PROCEED</string>
+    <string name="str_CardNumber">Card Number</string>
+    <string name="str_ExpiryDate">Expiry Date</string>
+    <string name="str_CVV">CVV</string>
+    <string name="str_CardHolderName">Card Holder Name</string>
+    <string name="str_Lower">LOWER</string>
+    <string name="str_Upper">UPPER</string>
+    <string name="str_Upcoming">UPCOMING</string>
+    <string name="str_Completed">COMPLETED</string>
+    <string name="str_Checkout">CHECK OUT</string>
+    <string name="str_Name">Name</string>
+    <string name="str_Age">Age</string>
+    <string name="str_loyalty_level">Loyalty Level</string>
+    <string name="str_recommendations">Recommendations</string>
+    <string name="str_save">SAVE</string>
+    <string name="str_launch_id">Launch ID</string>
+    <string name="str_mbox_information">Mbox Information</string>
+    <string name="str_home_offer_recommendation">Home_OfferRecommendation</string>
+    <string name="str_search_offers_filters">Search_OffersFilters</string>
+    <string name="str_seating_deals">Seating_Deals</string>
+    <string name="str_payments_offers">Payments_Offers</string>
+
+    <string name="str_nav_book_tickets">Book Tickets</string>
+    <string name="str_nav_my_tickets">My Tickets</string>
+    <string name="str_nav_my_profile">My Profile</string>
+    <string name="str_nav_logout">Logout</string>
+    <string name="str_nav_settings">Settings</string>
+
+    <string name="str_Sun">SU</string>
+    <string name="str_Mon">MO</string>
+    <string name="str_Tue">TU</string>
+    <string name="str_Wed">WE</string>
+    <string name="str_Thu">TH</string>
+    <string name="str_Fri">FR</string>
+    <string name="str_Sat">SA</string>
+
+</resources>

@@ -1,0 +1,26 @@
+{
+  "response_code": "1",
+  "response_message": "success",
+  "loyalties": [
+    {
+      "id": "0",
+      "name": "Select level"
+    },
+    {
+      "id": "1",
+      "name": "Sapphire"
+    },
+    {
+      "id": "2",
+      "name": "Platinum"
+    },
+    {
+      "id": "3",
+      "name": "Gold"
+    },
+    {
+      "id": "4",
+      "name": "Silver"
+    }
+  ]
+}
