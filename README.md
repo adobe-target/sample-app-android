@@ -1,2 +1,2 @@
-# sample-app-android
-Android Sample App
+# Android Sample App
+A sample bus booking app for Android
