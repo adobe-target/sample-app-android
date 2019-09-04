@@ -2,6 +2,7 @@ package com.wetravel.Controller;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.BottomSheetDialog;
@@ -10,13 +11,14 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.adobe.mobile.Target;
 import com.wetravel.Adapter.SearchOffersAdapter;
 import com.wetravel.Adapter.SearchTravelsAdapter;
 import com.wetravel.Models.Offer;
@@ -27,6 +29,9 @@ import com.wetravel.Utils.AppDialogs;
 import com.wetravel.Utils.Constant;
 import com.wetravel.Utils.Utility;
 
+import org.json.JSONArray;
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 
 public class SearchBusActivity extends AppCompatActivity {
@@ -34,9 +39,9 @@ public class SearchBusActivity extends AppCompatActivity {
     ImageView imgBack,imgFilter,imgOfferFullBanner,imgOfferCancel;
     TextView tvHeading;
     TextView tvDate,tvBusFound,txtRecommended;
-    RelativeLayout rlBusFound;
+    RelativeLayout rlBook,rlBusFound;
     LinearLayout rlFilter;
-    Button btnBook;
+    TextView tvBook;
 
     RecyclerView rvSearchOffers;
     SearchOffersAdapter searchOffersAdapter;
@@ -166,8 +171,8 @@ public class SearchBusActivity extends AppCompatActivity {
         rvSearchTravels.setItemAnimator(new DefaultItemAnimator());
         rvSearchTravels.setAdapter(searchTravelsAdapter);
 
-        btnBook = findViewById(R.id.btnBook);
-        btnBook.setOnClickListener(new View.OnClickListener() {
+        rlBook = findViewById(R.id.rlBook);
+        rlBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AppDialogs.dialogLoaderShow(SearchBusActivity.this);
@@ -194,8 +199,9 @@ public class SearchBusActivity extends AppCompatActivity {
         rlBusFound = findViewById(R.id.rlBusFound);
         rlBusFound.setPadding(Utility.deviceWidth*5/100,Utility.deviceWidth*4/100,Utility.deviceWidth*4/100,Utility.deviceWidth*5/100);
 
-        btnBook.setTextSize(Utility.txtSize_12dp);
-        btnBook.setTypeface(Utility.font_roboto_bold);
+        tvBook = findViewById(R.id.tvBook);
+        tvBook.setTextSize(Utility.txtSize_12dp);
+        tvBook.setTypeface(Utility.font_roboto_bold);
 
         imgOfferCancel = findViewById(R.id.imgOfferCancel);
         imgOfferFullBanner = findViewById(R.id.imgOfferFullBanner);
@@ -418,5 +424,64 @@ public class SearchBusActivity extends AppCompatActivity {
         this.travelName = travelName;
         this.departureTime = departureTime;
         this.busInfo = busInfo;
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        targetLoadRequest();
+    }
+
+    private void targetLoadRequest() {
+        Target.loadRequest("mboxTest3", "mboxTest3", null, null, null, new Target.TargetCallback<String>() {
+            @Override
+            public void call(final String s) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        System.out.println("Loaded content :" + s);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+
+                        try {
+                            // Get name of banner from JSON response
+
+
+                                    JSONObject obj = new JSONObject(s);
+                                    Log.d("My App", obj.toString());
+
+
+                        } catch (Throwable t) {
+                            Log.e("My App", "Could not parse malformed JSON");
+                        }
+
+
+
+
+
+
+
+
+
+
+
+//                                if (s.contains("banner_name")) {
+//                                    String banner_name = s.substring(16, s.length() - 1);
+//
+//                                    // Write offer name to screen (as placeholder / testing)
+//                                    tvBusFound.setText(tvBusFound.getText().toString() + ": " + banner_name);
+//
+//                                    // Display offer image
+//                                    ImageView target_banner = findViewById(R.id.target_banner);
+//                                    int banner_id = getResources().getIdentifier(banner_name, "drawable", getPackageName());
+//                                    target_banner.setImageResource(banner_id);
+//                                }
+                            }
+                        });
+                    }
+                });
+            }
+        });
     }
 }
