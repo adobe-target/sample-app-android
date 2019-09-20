@@ -1,0 +1,358 @@
+{
+  "response_code": "1",
+  "response_message": "success",
+  "sleeper_price":"550",
+  "siting_price":"399",
+  "seats_lower": [
+    {
+      "id": "1",
+      "seat_no": "L1",
+      "type": "sleeper",
+      "status":"1",
+      "price":"550"
+    },
+    {
+      "id": "2",
+      "seat_no": "L2",
+      "type": "sleeper",
+      "status":"1",
+      "price":"550"
+    },
+    {
+      "id": "3",
+      "seat_no": "L3",
+      "type": "sleeper",
+      "status":"1",
+      "price":"550"
+    },
+    {
+      "id": "4",
+      "seat_no": "L4",
+      "type": "sleeper",
+      "status":"0",
+      "price":"550"
+    },
+    {
+      "id": "5",
+      "seat_no": "L5",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "6",
+      "seat_no": "L6",
+      "type": "siting",
+      "status":"1",
+      "price":"399"
+    },
+    {
+      "id": "7",
+      "seat_no": "L7",
+      "type": "siting",
+      "status":"1",
+      "price":"399"
+    },
+    {
+      "id": "8",
+      "seat_no": "L8",
+      "type": "siting",
+      "status":"1",
+      "price":"399"
+    },
+    {
+      "id": "9",
+      "seat_no": "L9",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "10",
+      "seat_no": "L10",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "11",
+      "seat_no": "L11",
+      "type": "siting",
+      "status":"1",
+      "price":"399"
+    },
+    {
+      "id": "12",
+      "seat_no": "L12",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "13",
+      "seat_no": "L13",
+      "type": "siting",
+      "status":"1",
+      "price":"399"
+    },
+    {
+      "id": "14",
+      "seat_no": "L14",
+      "type": "siting",
+      "status":"1",
+      "price":"399"
+    },
+    {
+      "id": "15",
+      "seat_no": "L15",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "16",
+      "seat_no": "L16",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "17",
+      "seat_no": "L17",
+      "type": "siting",
+      "status":"1",
+      "price":"399"
+    },
+    {
+      "id": "18",
+      "seat_no": "L18",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "19",
+      "seat_no": "L19",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "20",
+      "seat_no": "L20",
+      "type": "siting",
+      "status":"1",
+      "price":"399"
+    },
+    {
+      "id": "21",
+      "seat_no": "L21",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "22",
+      "seat_no": "L22",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    },
+    {
+      "id": "23",
+      "seat_no": "L23",
+      "type": "siting",
+      "status":"0",
+      "price":"399"
+    }
+  ],
+  "seats_upper": [
+  {
+    "id": "1",
+    "seat_no": "U1",
+    "type": "sleeper",
+    "status":"1",
+    "price":"550"
+  },
+  {
+    "id": "2",
+    "seat_no": "U2",
+    "type": "sleeper",
+    "status":"1",
+    "price":"550"
+  },
+  {
+    "id": "3",
+    "seat_no": "U3",
+    "type": "sleeper",
+    "status":"0",
+    "price":"550"
+  },
+  {
+    "id": "4",
+    "seat_no": "U4",
+    "type": "sleeper",
+    "status":"0",
+    "price":"550"
+  },
+  {
+    "id": "5",
+    "seat_no": "U5",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "6",
+    "seat_no": "U6",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "7",
+    "seat_no": "U7",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "8",
+    "seat_no": "U8",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "9",
+    "seat_no": "U9",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "10",
+    "seat_no": "U10",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "11",
+    "seat_no": "U11",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "12",
+    "seat_no": "U12",
+    "type": "siting",
+    "status":"1",
+    "price":"399"
+  },
+  {
+    "id": "13",
+    "seat_no": "U13",
+    "type": "siting",
+    "status":"1",
+    "price":"399"
+  },
+  {
+    "id": "14",
+    "seat_no": "U14",
+    "type": "siting",
+    "status":"1",
+    "price":"399"
+  },
+  {
+    "id": "15",
+    "seat_no": "U15",
+    "type": "siting",
+    "status":"1",
+    "price":"399"
+  },
+  {
+    "id": "16",
+    "seat_no": "U16",
+    "type": "siting",
+    "status":"1",
+    "price":"399"
+  },
+  {
+    "id": "17",
+    "seat_no": "U17",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "18",
+    "seat_no": "U18",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "19",
+    "seat_no": "U19",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "20",
+    "seat_no": "U20",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "21",
+    "seat_no": "U21",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "22",
+    "seat_no": "U22",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  },
+  {
+    "id": "23",
+    "seat_no": "U23",
+    "type": "siting",
+    "status":"0",
+    "price":"399"
+  }
+],
+  "deal_offer":[
+    {
+      "id":"1",
+      "deal_image":"deal_offer_one.png",
+      "deal_name":"EXTRA PILLOW",
+      "deal_price":"50"
+    },
+    {
+      "id":"2",
+      "deal_image":"deal_offer_two.png",
+      "deal_name":"FRIES AND COKE COMBO",
+      "deal_price":"210"
+    },
+    {
+      "id":"3",
+      "deal_image":"deal_offer_three.png",
+      "deal_name":"BOTTLED WATER",
+      "deal_price":"50"
+    },
+    {
+      "id":"4",
+      "deal_image":"deal_offer_four.png",
+      "deal_name":"MEAL FOR ONE",
+      "deal_price":"210"
+    }
+  ]
+}

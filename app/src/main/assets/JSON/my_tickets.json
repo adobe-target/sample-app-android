@@ -1,0 +1,90 @@
+{
+  "response_code": "1",
+  "response_message": "success",
+  "ticket_history": [
+    {
+      "id": "1",
+      "departure": "San Jose",
+      "destination": "San Diego",
+      "departure_date": "26-07-2019",
+      "departure_time": "23:45",
+      "seat": "11,12",
+      "duration": "5",
+      "amount": "810",
+      "currency_symbol": "$",
+      "status": "Confirmed",
+      "travel_name": "Flash Travels",
+      "bus_info": "A/C Seater/Sleeper"
+    },
+    {
+      "id": "2",
+      "departure": "Las Vegas",
+      "destination": "San Francisco",
+      "departure_date": "30-08-2019",
+      "departure_time": "23:45",
+      "seat": "11,12",
+      "duration": "5",
+      "amount": "810",
+      "currency_symbol": "$",
+      "status": "Confirmed",
+      "travel_name": "Flash Travels",
+      "bus_info": "A/C Seater/Sleeper"
+    },
+    {
+      "id": "3",
+      "departure": "Las Vegas",
+      "destination": "San Francisco",
+      "departure_date": "30-08-2019",
+      "departure_time": "23:45",
+      "seat": "11,12",
+      "duration": "5",
+      "amount": "810",
+      "currency_symbol": "$",
+      "status": "Confirmed",
+      "travel_name": "Flash Travels",
+      "bus_info": "A/C Seater/Sleeper"
+    },
+    {
+      "id": "4",
+      "departure": "Las Vegas",
+      "destination": "San Francisco",
+      "departure_date": "30-08-2019",
+      "departure_time": "23:45",
+      "seat": "11,12",
+      "duration": "5",
+      "amount": "810",
+      "currency_symbol": "$",
+      "status": "Confirmed",
+      "travel_name": "Flash Travels",
+      "bus_info": "A/C Seater/Sleeper"
+    },
+    {
+      "id": "5",
+      "departure": "San Jose",
+      "destination": "San Diego",
+      "departure_date": "20-09-2019",
+      "departure_time": "23:45",
+      "seat": "11,13",
+      "duration": "5",
+      "amount": "810",
+      "currency_symbol": "$",
+      "status": "Confirmed",
+      "travel_name": "Flash Travels",
+      "bus_info": "A/C Seater/Sleeper"
+    }
+  ],
+  "recommendations": [
+    {
+      "id": "1",
+      "banner": "history_recommendations_one.png"
+    },
+    {
+      "id": "2",
+      "banner": "history_recommendations_two.png"
+    },
+    {
+      "id": "3",
+      "banner": "history_recommendations_three.png"
+    }
+  ]
+}

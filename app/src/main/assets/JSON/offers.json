@@ -1,0 +1,36 @@
+{
+  "response_code": "1",
+  "response_message": "success",
+  "offers": [
+    {
+      "id": "1",
+      "offer_code": "SJC50",
+      "offer_name": "San Jose",
+      "offer_price": "50",
+      "offer_desc": "San Diego to San Jose \nonly at",
+      "offer_banner": "bg_banner_one.png",
+      "action_banner": "bg_action_banner_one.png",
+      "flag_banner": "0"
+    },
+    {
+      "id": "2",
+      "offer_code": "",
+      "offer_name": "",
+      "offer_price": "",
+      "offer_desc": "",
+      "offer_banner": "bg_banner_two.png",
+      "action_banner": "bg_action_banner_one.png",
+      "flag_banner": "1"
+    },
+    {
+      "id": "3",
+      "offer_code": "SFE100",
+      "offer_name": "Santa Fe",
+      "offer_price": "100",
+      "offer_desc": "Anywhere to Santa Fe \nonly at",
+      "offer_banner": "bg_banner_one.png",
+      "action_banner": "bg_action_banner_one.png",
+      "flag_banner": "0"
+    }
+  ]
+}

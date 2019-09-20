@@ -1,0 +1,26 @@
+{
+  "response_code": "1",
+  "response_message": "success",
+  "recommandations": [
+    {
+      "id": "1",
+      "banner": "recommandation_one.png"
+    },
+    {
+      "id": "2",
+      "banner": "recommandation_two.png"
+    },
+    {
+      "id": "3",
+      "banner": "recommandation_three.png"
+    },
+    {
+      "id": "4",
+      "banner": "recommandation_one.png"
+    },
+    {
+      "id": "5",
+      "banner": "recommandation_two.png"
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+  "response_code": "1",
+  "response_message": "success",
+  "cities": [
+    {
+      "id": "1",
+      "city_code": "SJC",
+      "city_name": "San Jose"
+    },
+    {
+      "id": "2",
+      "city_code": "SDG",
+      "city_name": "San Diego"
+    },
+    {
+      "id": "3",
+      "city_code": "LVG",
+      "city_name": "Las Vegas"
+    },
+    {
+      "id": "4",
+      "city_code": "MOD",
+      "city_name": "Modesta"
+    },
+    {
+      "id": "5",
+      "city_code": "PLM",
+      "city_name": "Palm Springs"
+    },
+    {
+      "id": "6",
+      "city_code": "RED",
+      "city_name": "Redding"
+    },
+    {
+      "id": "7",
+      "city_code": "RSV",
+      "city_name": "Roseville"
+    },
+    {
+      "id": "8",
+      "city_code": "SLN",
+      "city_name": "Salinas"
+    },
+    {
+      "id": "9",
+      "city_code": "CHC",
+      "city_name": "Chico"
+    },
+    {
+      "id": "10",
+      "city_code": "SBC",
+      "city_name": "Santa Barbara"
+    },
+    {
+      "id": "11",
+      "city_code": "SFE",
+      "city_name": "Santa Fe"
+    },
+    {
+      "id": "12",
+      "city_code": "GIL",
+      "city_name": "Gilroy"
+    },
+    {
+      "id": "13",
+      "city_code": "LAX",
+      "city_name": "Los Angeles"
+    },
+    {
+      "id": "14",
+      "city_code": "HYW",
+      "city_name": "Hayward"
+    }
+    
+  ]
+}

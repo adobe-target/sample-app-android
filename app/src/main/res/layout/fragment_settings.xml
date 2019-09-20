@@ -1,0 +1,276 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingTop="@dimen/dp_15"
+    android:background="@color/color_F5F5F5">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <RelativeLayout
+        android:id="@+id/rlMain"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:id="@+id/rlLaunchID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtLaunchID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_launch_id"
+            android:textColor="@color/color_747474"
+            />
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_below="@+id/txtLaunchID"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/textfield_bg"
+                />
+            <EditText
+                android:id="@+id/edtLaunchID"
+                android:paddingLeft="@dimen/dp_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:background="@android:color/transparent"
+                android:textColor="@color/color_323232"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rlMboxInformations"
+        android:layout_marginTop="@dimen/dp_20"
+        android:layout_below="@+id/rlLaunchID"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtMboxInformations"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_mbox_information"
+            android:textColor="@color/color_707070"
+            />
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/rlMboxInformations"
+        android:layout_marginTop="@dimen/dp_20"
+        android:id="@+id/rlHomeOffers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtHomeOffers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_home_offer_recommendation"
+            android:textColor="@color/color_747474"
+            />
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_below="@+id/txtHomeOffers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/textfield_bg"
+                />
+            <EditText
+                android:id="@+id/edtHomeOffers"
+                android:paddingLeft="@dimen/dp_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:background="@android:color/transparent"
+                android:textColor="@color/color_323232"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/rlHomeOffers"
+        android:layout_marginTop="@dimen/dp_20"
+        android:id="@+id/rlSearchOffers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtSearchOffers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_search_offers_filters"
+            android:textColor="@color/color_747474"
+            />
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_below="@+id/txtSearchOffers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/textfield_bg"
+                />
+            <EditText
+                android:id="@+id/edtSearchOffers"
+                android:paddingLeft="@dimen/dp_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:background="@android:color/transparent"
+                android:textColor="@color/color_323232"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/rlSearchOffers"
+        android:layout_marginTop="@dimen/dp_20"
+        android:id="@+id/rlSeatingDeals"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtSeatingDeals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_seating_deals"
+            android:textColor="@color/color_747474"
+            />
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_below="@+id/txtSeatingDeals"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/textfield_bg"
+                />
+            <EditText
+                android:id="@+id/edtSeatingDeals"
+                android:paddingLeft="@dimen/dp_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:background="@android:color/transparent"
+                android:textColor="@color/color_323232"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/rlSeatingDeals"
+        android:layout_marginTop="@dimen/dp_20"
+        android:id="@+id/rlPaymentsOffers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/txtPaymentsOffers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/str_payments_offers"
+            android:textColor="@color/color_747474"
+            />
+
+        <RelativeLayout
+            android:layout_marginTop="@dimen/dp_5"
+            android:layout_below="@+id/txtPaymentsOffers"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:layout_centerVertical="true"
+                android:scaleType="fitXY"
+                android:src="@drawable/textfield_bg"
+                />
+            <EditText
+                android:id="@+id/edtPaymentsOffers"
+                android:paddingLeft="@dimen/dp_15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:singleLine="true"
+                android:background="@android:color/transparent"
+                android:textColor="@color/color_323232"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+    <RelativeLayout
+        android:id="@+id/rlSave"
+        android:layout_below="@+id/rlPaymentsOffers"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/dp_5"
+        android:layout_centerHorizontal="true">
+
+        <ImageView
+            android:id="@+id/imgSave"
+            android:layout_width="match_parent"
+            android:layout_centerHorizontal="true"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:layout_height="wrap_content" />
+
+        <TextView
+            android:id="@+id/tvSave"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/str_save"
+            android:textColor="@color/color_ffffff" />
+
+    </RelativeLayout>
+    </RelativeLayout>
+    </ScrollView>
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:visibility="gone"
+        android:indeterminateTint="@color/color_1473E6" />
+</RelativeLayout>
