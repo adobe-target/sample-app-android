@@ -19,6 +19,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.adobe.mobile.Target;
+import com.adobe.mobile.TargetLocationRequest;
+import com.adobe.mobile.TargetRequestObject;
 import com.wetravel.Adapter.SearchOffersAdapter;
 import com.wetravel.Adapter.SearchTravelsAdapter;
 import com.wetravel.Models.Offer;
@@ -30,9 +32,13 @@ import com.wetravel.Utils.Constant;
 import com.wetravel.Utils.Utility;
 
 import org.json.JSONArray;
+import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 public class SearchBusActivity extends AppCompatActivity {
     String heading,mDate,departure,destination,strFilter = "";
@@ -56,12 +62,16 @@ public class SearchBusActivity extends AppCompatActivity {
 
     String travelId="",travelName,departureTime,busInfo;
 
+    public int banner_id;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         this.getWindow().setStatusBarColor(getResources().getColor(R.color.color_E0E0E0));
-        setContentView(R.layout.activity_search_bus);
+    }
 
+    public void setUpSearch() {
+        setContentView(R.layout.activity_search_bus);
         initLayouts();
         getSearchData();
     }
@@ -79,7 +89,12 @@ public class SearchBusActivity extends AppCompatActivity {
         tvDate.setText(mDate);
 
         ArrayList<Offer> offerList = getIntent().getParcelableArrayListExtra("offerList");
-        searchOffersList.addAll(offerList);
+
+
+        // FIND BANNER DETERMINED BY ADOBE TARGET OFFER
+        searchOffersList.add(offerList.get(banner_id));
+        searchOffersList.add(offerList.get(banner_id+1));
+//      searchOffersList.addAll(offerList);
         searchOffersAdapter.notifyDataSetChanged();
 
         masterList = getIntent().getParcelableArrayListExtra("searchList");
@@ -427,61 +442,105 @@ public class SearchBusActivity extends AppCompatActivity {
     }
 
     @Override
-    protected void onResume() {
+    public void onResume() {
         super.onResume();
-        targetLoadRequest();
+       targetLoadRequest();
+ //       targetLoadRequests();
     }
 
-    private void targetLoadRequest() {
-        Target.loadRequest("mboxTest3", "mboxTest3", null, null, null, new Target.TargetCallback<String>() {
+
+    //SINGLE MBOX SCENARIO - JSON OFFER
+    public void targetLoadRequest() {
+        Map<String, Object> mboxParam;
+        mboxParam = new HashMap<String, Object>();
+        mboxParam.put("at_property", "7962ac68-17db-1579-408f-9556feccb477");
+        Target.loadRequest("mboxTest3", "----default_mbox----", null, null, mboxParam, new Target.TargetCallback<String>() {
             @Override
             public void call(final String s) {
-                runOnUiThread(new Runnable() {
+                SearchBusActivity.this.runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
-                        System.out.println("Loaded content :" + s);
-                        runOnUiThread(new Runnable() {
-                            @Override
-                            public void run() {
-
                         try {
-                            // Get name of banner from JSON response
-
-
-                                    JSONObject obj = new JSONObject(s);
-                                    Log.d("My App", obj.toString());
-
-
-                        } catch (Throwable t) {
-                            Log.e("My App", "Could not parse malformed JSON");
+                            JSONObject obj = new JSONObject(s);
+                            banner_id = obj.getInt("id");
+                        } catch (
+                                Throwable t) {
+                            Log.e("My App", "Could not parse malformed JSON: \"" + s + "\"");
                         }
 
+                        setUpSearch();
+                        getSearchData();
 
-
-
-
-
-
-
-
-
-
-//                                if (s.contains("banner_name")) {
-//                                    String banner_name = s.substring(16, s.length() - 1);
-//
-//                                    // Write offer name to screen (as placeholder / testing)
-//                                    tvBusFound.setText(tvBusFound.getText().toString() + ": " + banner_name);
-//
-//                                    // Display offer image
-//                                    ImageView target_banner = findViewById(R.id.target_banner);
-//                                    int banner_id = getResources().getIdentifier(banner_name, "drawable", getPackageName());
-//                                    target_banner.setImageResource(banner_id);
-//                                }
-                            }
-                        });
                     }
                 });
             }
         });
     }
+
+
+    // MULTIPLE MBOX SCENARIOS- 2 JSON OFFERS
+//    public void targetLoadRequests() {
+//
+//            // Create Multiple Target Location Requests & send in one loadRequests() call
+//
+//            // 1st Location
+//            Map<String, Object> mboxParam;
+//            mboxParam = new HashMap<String, Object>();
+//            mboxParam.put("at_property", "7962ac68-17db-1579-408f-9556feccb477");
+//            TargetRequestObject request1 = Target.createTargetRequestObject("mboxTest3", "--mboxTest3_default--", mboxParam, null, null, new Target.TargetCallback<String>() {
+//                @Override
+//                public void call(final String s) {
+//                    SearchBusActivity.this.runOnUiThread(new Runnable() {
+//                        @Override
+//                        public void run() {
+//                            try {
+//                                JSONObject obj = new JSONObject(s);
+//                                banner_id = obj.getInt("id");
+//                            } catch (
+//                                    Throwable t) {
+//                                Log.e("My App", "Could not parse malformed JSON: \"" + s + "\"");
+//                            }
+//                        }
+//                    });
+//                }
+//            });
+//
+//            // 2nd Location
+//        TargetRequestObject request2 = Target.createTargetRequestObject("mboxTest4", "--mboxTest4_default--", mboxParam, null, null, new Target.TargetCallback<String>() {
+//            @Override
+//            public void call(final String s) {
+//                SearchBusActivity.this.runOnUiThread(new Runnable() {
+//                    @Override
+//                    public void run() {
+//                        try {
+//                            // Get JSON Offer name
+//                            JSONObject obj2 = new JSONObject(s);
+//                            String offer2_name = obj2.getString("offer2_name");
+//                            Log.d("Sent:", s);
+//
+//                            // Get 2nd banner based on JSON offer name & display above Bus results
+//                            ImageView target_banner = findViewById(R.id.target_banner);
+//                            int offer2_id = getResources().getIdentifier(offer2_name, "drawable", getPackageName());
+//                            target_banner.setImageResource(offer2_id);
+//                        } catch (
+//                                Throwable t) {
+//                            Log.e("My App", "Could not parse malformed JSON: \"" + s + "\"");
+//                        }
+//                    }
+//                });
+//            }
+//        });
+//
+//        // Create Array of both requests
+//        List<TargetRequestObject> locationRequests = new ArrayList<>();
+//        locationRequests.add(request1);
+//        locationRequests.add(request2);
+//
+//        // Send Location Requests
+//        Target.loadRequests(locationRequests, null);
+//        setUpSearch();
+
+//    }
+
+
 }
