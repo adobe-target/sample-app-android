@@ -87,7 +87,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
                 getDeparture();
                 getDestination();
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
         findBusAlert(true);
 
         return rootView;
@@ -104,7 +104,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
 
         //Heading Where Property
         tvWhere = rootView.findViewById(R.id.tvWhere);
-        tvWhere.setPadding(Utility.deviceWidth*6/100,Utility.deviceWidth*5/100,0,0);
+        tvWhere.setPadding(Utility.deviceWidth*6/100, Utility.deviceWidth*5/100,0,0);
         tvWhere.setTextSize(Utility.txtSize_16dp);
         tvWhere.setTypeface(Utility.font_roboto_regular);
 
@@ -113,11 +113,11 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
         tvFrom.setTextSize(Utility.txtSize_12dp);
         tvFrom.setTypeface(Utility.font_roboto_medium);
         RelativeLayout.LayoutParams paramstvFrom = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-        paramstvFrom.setMargins(0,Utility.deviceWidth*7/100,0,0);
+        paramstvFrom.setMargins(0, Utility.deviceWidth*7/100,0,0);
         tvFrom.setLayoutParams(paramstvFrom);
 
         imgRoundFrom = rootView.findViewById(R.id.imgRoundFrom);
-        imgRoundFrom.setPadding(Utility.deviceWidth*7/100,Utility.deviceWidth*11/100,0,0);
+        imgRoundFrom.setPadding(Utility.deviceWidth*7/100, Utility.deviceWidth*11/100,0,0);
 
         edtDeparture = rootView.findViewById(R.id.edtDeparture);
         edtDeparture.getLayoutParams().width = Utility.deviceWidth*74/100;
@@ -169,12 +169,12 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
 
         //To layer Property
         tvTo = rootView.findViewById(R.id.tvTo);
-        tvTo.setPadding(0,Utility.deviceWidth*3/100,0,0);
+        tvTo.setPadding(0, Utility.deviceWidth*3/100,0,0);
         tvTo.setTextSize(Utility.txtSize_12dp);
         tvTo.setTypeface(Utility.font_roboto_medium);
 
         imgRoundTo = rootView.findViewById(R.id.imgRoundTo);
-        imgRoundTo.setPadding(Utility.deviceWidth*7/100,Utility.deviceWidth*8/100,0,0);
+        imgRoundTo.setPadding(Utility.deviceWidth*7/100, Utility.deviceWidth*8/100,0,0);
 
         edtDestination = rootView.findViewById(R.id.edtDestination);
         edtDestination.setTextSize(Utility.txtSize_15dp);
@@ -233,7 +233,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
         //Date layer Property
         txtDate = rootView.findViewById(R.id.txtDate);
         txtDate.setTextSize(Utility.txtSize_12dp);
-        txtDate.setPadding(0,Utility.deviceWidth*4/100,0,0);
+        txtDate.setPadding(0, Utility.deviceWidth*4/100,0,0);
         txtDate.setTypeface(Utility.font_roboto_medium);
 
         Calendar mCalender = Calendar.getInstance();
@@ -245,17 +245,17 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
         tvDate = rootView.findViewById(R.id.tvDate);
         tvDate.setTextSize(Utility.txtSize_15dp);
         tvDate.setTypeface(Utility.font_roboto_regular);
-        tvDate.setText(Utility.changeDateFormat(Constant.date_ddmyyyy,Constant.date_ddmmmyyyy,""+currentDay+"-"+currentMonth+"-"+currentYear));
+        tvDate.setText(Utility.changeDateFormat(Constant.date_ddmyyyy, Constant.date_ddmmmyyyy,""+currentDay+"-"+currentMonth+"-"+currentYear));
 
         rlDate = rootView.findViewById(R.id.rlDate);
         RelativeLayout.LayoutParams paramsrlDate = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
         paramsrlDate.setMargins(0,-Utility.deviceWidth*8/100,0,0);
-        paramsrlDate.addRule(RelativeLayout.BELOW,R.id.rlFromTo);
+        paramsrlDate.addRule(RelativeLayout.BELOW, R.id.rlFromTo);
         rlDate.setLayoutParams(paramsrlDate);
 //        rlDate.setPadding(0,-Utility.deviceWidth*10/1000,0,0);
 
         imgDate = rootView.findViewById(R.id.imgDate);
-        imgDate.setPadding(Utility.deviceWidth*6/100,Utility.deviceWidth*8/100,0,0);
+        imgDate.setPadding(Utility.deviceWidth*6/100, Utility.deviceWidth*8/100,0,0);
 
         rlDate.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -270,7 +270,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
 //        RelativeLayout.LayoutParams paramsrlFindBus = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
 //        paramsrlFindBus.setMargins(0,Utility.deviceWidth*73/100,0,0);
 //        rlFindBus.setLayoutParams(paramsrlFindBus);
-        rlFindBus.setPadding(Utility.deviceWidth*2/100,0,Utility.deviceWidth*2/100,0);
+        rlFindBus.setPadding(Utility.deviceWidth*2/100,0, Utility.deviceWidth*2/100,0);
         rlFindBus.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -280,7 +280,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
                     public void run() {
                         getFindBus();
                     }
-                },Constant.delay_api);
+                }, Constant.delay_api);
             }
         });
 
@@ -309,13 +309,13 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
 
         rlDestinationError = rootView.findViewById(R.id.rlDestinationError);
         RelativeLayout.LayoutParams paramstv_rlDestinationError = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-        paramstv_rlDestinationError.setMargins(Utility.deviceWidth*6/100,Utility.deviceWidth*3/100,0,0);
+        paramstv_rlDestinationError.setMargins(Utility.deviceWidth*6/100, Utility.deviceWidth*3/100,0,0);
         rlDestinationError.setLayoutParams(paramstv_rlDestinationError);
 
 
         rlDepartureError = rootView.findViewById(R.id.rlDepartureError);
         RelativeLayout.LayoutParams paramstv_rlDepartureError = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-        paramstv_rlDepartureError.setMargins(Utility.deviceWidth*12/100,Utility.deviceWidth*65/1000,0,0);
+        paramstv_rlDepartureError.setMargins(Utility.deviceWidth*12/100, Utility.deviceWidth*65/1000,0,0);
         rlDepartureError.setLayoutParams(paramstv_rlDepartureError);
     }
 
@@ -323,7 +323,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
     public void getOffers(){
         rvOffers.setAdapter(offersAdapter);
 
-        GetJSON getJSON = new GetJSON(getActivity(),Constant.json_offers) {
+        GetJSON getJSON = new GetJSON(getActivity(), Constant.json_offers) {
             @Override
             public void response(String response) {
                 try {
@@ -342,7 +342,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
 
     //Get Departure Cities api
     public void getDeparture(){
-        GetJSON getJSON = new GetJSON(getActivity(),Constant.json_departure) {
+        GetJSON getJSON = new GetJSON(getActivity(), Constant.json_departure) {
             @Override
             public void response(String response) {
                 try {
@@ -360,7 +360,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
 
     //Get Destination Cities api
     public void getDestination(){
-        GetJSON getJSON = new GetJSON(getActivity(),Constant.json_destination) {
+        GetJSON getJSON = new GetJSON(getActivity(), Constant.json_destination) {
             @Override
             public void response(String response) {
                 try {
@@ -378,7 +378,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
 
     //Get Offers api
     public void getFindBus(){
-        GetJSON getJSON = new GetJSON(getActivity(),Constant.json_search_success) {
+        GetJSON getJSON = new GetJSON(getActivity(), Constant.json_search_success) {
             @Override
             public void response(String response) {
                 AppDialogs.dialogLoaderHide();
@@ -464,11 +464,11 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
         rlDate.getLocationOnScreen(location);
         View mView = inflater.inflate(R.layout.calender_view_popup,null);
 
-        datePopUp = new PopupWindow(mView, Utility.deviceWidth*85/100,Utility.deviceWidth*83/100,false);
+        datePopUp = new PopupWindow(mView, Utility.deviceWidth*85/100, Utility.deviceWidth*83/100,false);
         datePopUp.setTouchable(true);
         datePopUp.setFocusable(true);
         datePopUp.setOutsideTouchable(true);
-        datePopUp.showAtLocation(v,Gravity.NO_GRAVITY, location[0]+Utility.deviceWidth*7/100,location[1]+Utility.deviceWidth*18/100);
+        datePopUp.showAtLocation(v,Gravity.NO_GRAVITY, location[0]+ Utility.deviceWidth*7/100,location[1]+ Utility.deviceWidth*18/100);
 
         CalenderView calenderView = mView.findViewById(R.id.cvPopup);
         calenderView.setListener(HomeFragmentOld.this,selectDate);
@@ -480,7 +480,7 @@ public class HomeFragmentOld extends Fragment implements DateResponse {
         this.selectDate = selectedDate;
         this.dayOfWeek = dayOfWeek;
 
-        tvDate.setText(Utility.changeDateFormat(Constant.date_ddmyyyy,Constant.date_ddmmmyyyy,selectDate));
+        tvDate.setText(Utility.changeDateFormat(Constant.date_ddmyyyy, Constant.date_ddmmmyyyy,selectDate));
         findBusAlert(true);
     }
 }

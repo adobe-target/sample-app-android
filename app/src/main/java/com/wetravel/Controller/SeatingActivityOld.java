@@ -1,6 +1,5 @@
 package com.wetravel.Controller;
 
-import android.animation.ObjectAnimator;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.AsyncTask;
@@ -13,7 +12,6 @@ import android.support.v7.widget.DefaultItemAnimator;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
-import android.view.animation.AlphaAnimation;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
@@ -21,7 +19,6 @@ import android.widget.ScrollView;
 import android.widget.TextView;
 
 import com.google.gson.Gson;
-import com.wetravel.Adapter.DealOfferAdapter;
 import com.wetravel.Adapter.DealOfferAdapterOld;
 import com.wetravel.BackEnd.GetJSON;
 import com.wetravel.Models.Deal;
@@ -79,7 +76,7 @@ public class SeatingActivityOld extends AppCompatActivity {
             public void run() {
                 getSeatingDetails();
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
     }
 
     public void setParamValue(){
@@ -153,7 +150,7 @@ public class SeatingActivityOld extends AppCompatActivity {
         tvLower.setTextSize(Utility.txtSize_15dp);
 
         tvUpper = findViewById(R.id.tvUpper);
-        tvUpper.setPadding(0,0,Utility.deviceWidth*8/100,0);
+        tvUpper.setPadding(0,0, Utility.deviceWidth*8/100,0);
         tvUpper.setTextSize(Utility.txtSize_15dp);
 
         tvAll = findViewById(R.id.tvAll);
@@ -208,7 +205,7 @@ public class SeatingActivityOld extends AppCompatActivity {
         tvAmount.setTextSize(Utility.txtSize_12dp);
 
         svSeats = findViewById(R.id.svSeats);
-        svSeats.setPadding(0,0,0,Utility.deviceWidth*42/100);
+        svSeats.setPadding(0,0,0, Utility.deviceWidth*42/100);
     }
 
     @Override
@@ -217,7 +214,7 @@ public class SeatingActivityOld extends AppCompatActivity {
     }
 
     public void getSeatingDetails(){
-        GetJSON getJSON = new GetJSON(this,Constant.json_seating) {
+        GetJSON getJSON = new GetJSON(this, Constant.json_seating) {
             @Override
             public void response(String response) {
                 AppDialogs.dialogLoaderHide();

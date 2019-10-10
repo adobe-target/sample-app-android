@@ -2,7 +2,6 @@ package com.wetravel.Controller;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.os.Handler;
 import android.support.design.widget.BottomSheetDialog;
@@ -13,14 +12,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.adobe.mobile.Target;
-import com.adobe.mobile.TargetLocationRequest;
-import com.adobe.mobile.TargetRequestObject;
 import com.wetravel.Adapter.SearchOffersAdapter;
 import com.wetravel.Adapter.SearchTravelsAdapter;
 import com.wetravel.Models.Offer;
@@ -31,13 +29,10 @@ import com.wetravel.Utils.AppDialogs;
 import com.wetravel.Utils.Constant;
 import com.wetravel.Utils.Utility;
 
-import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class SearchBusActivity extends AppCompatActivity {
@@ -45,9 +40,9 @@ public class SearchBusActivity extends AppCompatActivity {
     ImageView imgBack,imgFilter,imgOfferFullBanner,imgOfferCancel;
     TextView tvHeading;
     TextView tvDate,tvBusFound,txtRecommended;
-    RelativeLayout rlBook,rlBusFound;
+    Button rlBook;
+    RelativeLayout rlBusFound;
     LinearLayout rlFilter;
-    TextView tvBook;
 
     RecyclerView rvSearchOffers;
     SearchOffersAdapter searchOffersAdapter;
@@ -119,7 +114,7 @@ public class SearchBusActivity extends AppCompatActivity {
         imgFilter = findViewById(R.id.imgFilter);
         imgFilter.getLayoutParams().height = Utility.deviceWidth*6/100;
         imgFilter.getLayoutParams().width = Utility.deviceWidth*6/100;
-        imgFilter.setPadding(Utility.deviceWidth*1/100,Utility.deviceWidth*1/100,0,0);
+        imgFilter.setPadding(Utility.deviceWidth*1/100, Utility.deviceWidth*1/100,0,0);
 
         rlFilter = findViewById(R.id.rlFilter);
         rlFilter.setOnClickListener(new View.OnClickListener() {
@@ -146,7 +141,7 @@ public class SearchBusActivity extends AppCompatActivity {
                     public void run() {
                         AppDialogs.dialogLoaderHide();
                         if(travelId.equalsIgnoreCase("")) {
-                            Utility.showToast(getApplicationContext(),Constant.msg_select_travel);
+                            Utility.showToast(getApplicationContext(), Constant.msg_select_travel);
                         }else{
                             Intent intent = new Intent(getApplicationContext(), SeatingActivityOld.class);
                             intent.putExtra("travelName", travelName);
@@ -156,7 +151,7 @@ public class SearchBusActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                     }
-                },Constant.delay_api);
+                }, Constant.delay_api);
             }
         });
 
@@ -186,7 +181,7 @@ public class SearchBusActivity extends AppCompatActivity {
         rvSearchTravels.setItemAnimator(new DefaultItemAnimator());
         rvSearchTravels.setAdapter(searchTravelsAdapter);
 
-        rlBook = findViewById(R.id.rlBook);
+        rlBook = findViewById(R.id.btnBook);
         rlBook.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -197,7 +192,7 @@ public class SearchBusActivity extends AppCompatActivity {
                     public void run() {
                         AppDialogs.dialogLoaderHide();
                         if(travelId.equalsIgnoreCase("")) {
-                            Utility.showToast(getApplicationContext(),Constant.msg_select_travel);
+                            Utility.showToast(getApplicationContext(), Constant.msg_select_travel);
                         }else{
                             Intent intent = new Intent(getApplicationContext(), SeatingActivity.class);
                             intent.putExtra("travelName", travelName);
@@ -207,16 +202,13 @@ public class SearchBusActivity extends AppCompatActivity {
                             startActivity(intent);
                         }
                     }
-                },Constant.delay_api);
+                }, Constant.delay_api);
             }
         });
 
         rlBusFound = findViewById(R.id.rlBusFound);
-        rlBusFound.setPadding(Utility.deviceWidth*5/100,Utility.deviceWidth*4/100,Utility.deviceWidth*4/100,Utility.deviceWidth*5/100);
+        rlBusFound.setPadding(Utility.deviceWidth*5/100, Utility.deviceWidth*4/100, Utility.deviceWidth*4/100, Utility.deviceWidth*5/100);
 
-        tvBook = findViewById(R.id.tvBook);
-        tvBook.setTextSize(Utility.txtSize_12dp);
-        tvBook.setTypeface(Utility.font_roboto_bold);
 
         imgOfferCancel = findViewById(R.id.imgOfferCancel);
         imgOfferFullBanner = findViewById(R.id.imgOfferFullBanner);
@@ -245,7 +237,7 @@ public class SearchBusActivity extends AppCompatActivity {
                         searchTravelsList.addAll(tempList);
                         searchTravelsAdapter.notifyDataSetChanged();
                     }
-                },Constant.delay_api);
+                }, Constant.delay_api);
             }
         });
     }
@@ -391,7 +383,7 @@ public class SearchBusActivity extends AppCompatActivity {
                 tvBusFound.setText(searchTravelsList.size() + " Buses found");
                 searchTravelsAdapter.notifyDataSetChanged();
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
     }
 
     public void setFilterForOffers(final String tag, final String bannerUrl){
@@ -431,7 +423,7 @@ public class SearchBusActivity extends AppCompatActivity {
                 tvBusFound.setText(searchTravelsList.size() + " Buses found");
                 searchTravelsAdapter.gotoupdate(searchTravelsList);
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
     }
 
     public void setTravelSelectable(String travelId,String travelName,String departureTime,String busInfo){
@@ -444,8 +436,26 @@ public class SearchBusActivity extends AppCompatActivity {
     @Override
     public void onResume() {
         super.onResume();
-       targetLoadRequest();
+        engageMessage();
+        targetLoadRequest();
  //       targetLoadRequests();
+    }
+
+    public void engageMessage() {
+        Target.loadRequest(Constant.mbox_engage_search, "", null, null, null,
+                new Target.TargetCallback<String>(){
+                    @Override
+                    public void call(final String s) {
+                        //final ImageView mbox2 = (ImageView)findViewById(R.id.txtMbox2);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                System.out.println("Engage Message : " + s);
+                                if(s != null && !s.isEmpty()) Utility.showToast(getApplicationContext(), s);
+                            }
+                        });
+                    }
+                });
     }
 
 

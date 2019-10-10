@@ -16,28 +16,28 @@ import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.adobe.mobile.Target;
 import com.google.gson.Gson;
 import com.wetravel.Adapter.HistoryRecommendationsAdapter;
 import com.wetravel.Adapter.MyTicketsAdapter;
-import com.wetravel.Adapter.OffersAdapter;
-import com.wetravel.Adapter.RecommandationAdapter;
 import com.wetravel.BackEnd.GetJSON;
 import com.wetravel.Controller.HomeActivity;
-import com.wetravel.Models.MyOffers;
+import com.wetravel.Controller.SearchBusActivity;
 import com.wetravel.Models.MyTickets;
 import com.wetravel.Models.Recommandation;
 import com.wetravel.R;
-import com.wetravel.Utils.AppDialogs;
 import com.wetravel.Utils.Constant;
 import com.wetravel.Utils.Utility;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class MyTicketsFragment extends Fragment {
     View rootView;
-    RelativeLayout rlUpcoming,rlCompleted;
-    TextView tvUpcoming,tvCompleted,tvRecommendations;
-    View viewUpcoming,viewCompleted;
+    RelativeLayout rlUpcoming, rlCompleted;
+    TextView tvUpcoming, tvCompleted, tvRecommendations;
+    View viewUpcoming, viewCompleted;
 
     RecyclerView rvMyTickets;
     MyTicketsAdapter myTicketsAdapter;
@@ -54,9 +54,9 @@ public class MyTicketsFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        rootView = inflater.inflate(R.layout.fragment_my_tickets,container,false);
+        rootView = inflater.inflate(R.layout.fragment_my_tickets, container, false);
 
-        ((HomeActivity)getActivity()).setHeader("My Tickets");
+        ((HomeActivity) getActivity()).setHeader("My Tickets");
         initLayout();
         loaderVisibility(true);
         new Handler().postDelayed(new Runnable() {
@@ -64,13 +64,13 @@ public class MyTicketsFragment extends Fragment {
             public void run() {
                 getMyTickets();
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
 
         return rootView;
     }
 
     //View initialization
-    public void initLayout(){
+    public void initLayout() {
         rlMain = rootView.findViewById(R.id.rlMain);
         progressBar = rootView.findViewById(R.id.progressBar);
 
@@ -103,24 +103,24 @@ public class MyTicketsFragment extends Fragment {
         });
 
         rvMyTickets = rootView.findViewById(R.id.rvMyTickets);
-        rvMyTickets.setPadding(0,0,0,Utility.deviceWidth*2/100);
-        rvMyTickets.getLayoutParams().height = Utility.deviceHeight*52/100;
-        myTicketsAdapter = new MyTicketsAdapter(getActivity(),myTickets);
+        rvMyTickets.setPadding(0, 0, 0, Utility.deviceWidth * 2 / 100);
+        rvMyTickets.getLayoutParams().height = Utility.deviceHeight * 52 / 100;
+        myTicketsAdapter = new MyTicketsAdapter(getActivity(), myTickets);
         RecyclerView.LayoutManager layoutManagerTravels = new LinearLayoutManager(getActivity());
         rvMyTickets.setLayoutManager(layoutManagerTravels);
         rvMyTickets.setItemAnimator(new DefaultItemAnimator());
         rvMyTickets.setAdapter(myTicketsAdapter);
 
         rvRecommendations = rootView.findViewById(R.id.rvRecommendations);
-        historyRecommendationsAdapter = new HistoryRecommendationsAdapter(getActivity(),recommandations);
-        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(),1);
+        historyRecommendationsAdapter = new HistoryRecommendationsAdapter(getActivity(), recommandations);
+        RecyclerView.LayoutManager layoutManager = new GridLayoutManager(getActivity(), 1);
         ((GridLayoutManager) layoutManager).setOrientation(LinearLayoutManager.HORIZONTAL);
         rvRecommendations.setLayoutManager(layoutManager);
         rvRecommendations.setItemAnimator(new DefaultItemAnimator());
         rvRecommendations.setAdapter(historyRecommendationsAdapter);
     }
 
-    public void setUpcoming(){
+    public void setUpcoming() {
         viewUpcoming.setVisibility(View.VISIBLE);
         viewCompleted.setVisibility(View.GONE);
 
@@ -128,15 +128,15 @@ public class MyTicketsFragment extends Fragment {
         tvCompleted.setTextColor(getResources().getColor(R.color.color_919191));
 
         ArrayList<MyTickets> tempList = new ArrayList<>();
-        for(int i=0;i<masterList.size();i++){
-            if(Utility.isFutureDate(masterList.get(i).getDeparture_date()+" "+masterList.get(i).getDeparture_time()+":00")){
+        for (int i = 0; i < masterList.size(); i++) {
+            if (Utility.isFutureDate(masterList.get(i).getDeparture_date() + " " + masterList.get(i).getDeparture_time() + ":00")) {
                 tempList.add(masterList.get(i));
             }
         }
         refreshAdapter(tempList);
     }
 
-    public void setCompleted(){
+    public void setCompleted() {
         viewUpcoming.setVisibility(View.GONE);
         viewCompleted.setVisibility(View.VISIBLE);
 
@@ -144,28 +144,27 @@ public class MyTicketsFragment extends Fragment {
         tvCompleted.setTextColor(getResources().getColor(R.color.color_003232));
 
         ArrayList<MyTickets> tempList = new ArrayList<>();
-        for(int i=0;i<masterList.size();i++){
-            if(!Utility.isFutureDate(masterList.get(i).getDeparture_date()+" "+masterList.get(i).getDeparture_time()+":00")){
+        for (int i = 0; i < masterList.size(); i++) {
+            if (!Utility.isFutureDate(masterList.get(i).getDeparture_date() + " " + masterList.get(i).getDeparture_time() + ":00")) {
                 tempList.add(masterList.get(i));
             }
         }
         refreshAdapter(tempList);
     }
 
-    public void getMyTickets(){
-        GetJSON getJSON = new GetJSON(getActivity(),Constant.json_my_tickets) {
+    public void getMyTickets() {
+        GetJSON getJSON = new GetJSON(getActivity(), Constant.json_my_tickets) {
             @Override
             public void response(String response) {
-                loaderVisibility(false);
                 try {
                     Gson gson = new Gson();
-                    MyTickets tickets = gson.fromJson(response,MyTickets.class);
+                    MyTickets tickets = gson.fromJson(response, MyTickets.class);
                     masterList = tickets.ticket_history;
-
-                    recommandations.addAll(tickets.recommendations);
-                    historyRecommendationsAdapter.notifyDataSetChanged();
+//                    recommandations.addAll(tickets.recommendations);
+//                    historyRecommendationsAdapter.notifyDataSetChanged();
                     setUpcoming();
-                }catch (Exception e){
+                    targetLoadRequest();
+                } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
@@ -173,14 +172,54 @@ public class MyTicketsFragment extends Fragment {
         getJSON.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
 
-    public void refreshAdapter(ArrayList<MyTickets> list){
+    public void refreshAdapter(ArrayList<MyTickets> list) {
         myTickets.clear();
         myTickets.addAll(list);
         myTicketsAdapter.notifyDataSetChanged();
     }
 
-    public void loaderVisibility(boolean b){
+    public void loaderVisibility(boolean b) {
         rlMain.setVisibility(b ? View.GONE : View.VISIBLE);
         progressBar.setVisibility(b ? View.VISIBLE : View.GONE);
+    }
+
+    public void targetLoadRequest() {
+        Map<String, Object> profileParams = new HashMap<String, Object>();
+        if (!Utility.getInSharedPreference(getActivity(), Constant.shared_loyalty_level, "").equalsIgnoreCase("")) {
+            int loyaltyIndex = Integer.parseInt(Utility.getInSharedPreference(getActivity(), Constant.shared_loyalty_level, ""));
+            switch (loyaltyIndex) {
+                case 1:
+                    profileParams.put("loyaltyType", "Sapphire" );
+                    break;
+                case 2:
+                    profileParams.put("loyaltyType", "Platinum" );
+                    break;
+                case 3:
+                    profileParams.put("loyaltyType", "Gold" );
+                    break;
+                default:
+                    break;
+            }
+        }
+        Target.loadRequest(Constant.mbox_profile_offers, "", profileParams, null, null, new Target.TargetCallback<String>() {
+            @Override
+            public void call(final String response) {
+                try {
+                    Gson gson = new Gson();
+                    // Json with only one card is expected in response...
+                    Recommandation recommandation = gson.fromJson(response, Recommandation.class);
+                    recommandations.add(recommandation);
+                    getActivity().runOnUiThread(new Runnable() {
+                       @Override
+                       public void run() {
+                           loaderVisibility(false);
+                           historyRecommendationsAdapter.notifyDataSetChanged();
+                       }
+                   });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }

@@ -413,6 +413,8 @@ public class HomeFragment extends Fragment implements DateResponse {
                             intent.putExtra("destination",""+edtDestination.getText().toString());
                             intent.putExtra("heading",""+departureCityCode+" to "+destinationCityCode);
                             intent.putExtra("mDate",tvDate.getText().toString());
+                            Utility.saveInSharedPreference(getActivity(), Constant.destination ,edtDestination.getText().toString());
+                            Utility.saveInSharedPreference(getActivity(), Constant.departure ,edtDeparture.getText().toString());
                             startActivity(intent);
                         }else{
                             findBusAlert(false);

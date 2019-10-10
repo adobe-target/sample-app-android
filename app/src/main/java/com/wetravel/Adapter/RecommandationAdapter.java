@@ -2,7 +2,6 @@ package com.wetravel.Adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -35,7 +34,7 @@ public class RecommandationAdapter extends RecyclerView.Adapter<RecommandationAd
             //Banner Property
             imgBanner = itemView.findViewById(R.id.imgBanner);
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(Utility.deviceWidth*4/100,Utility.deviceWidth*4/100,Utility.deviceWidth*4/100,0);
+            params.setMargins(Utility.deviceWidth*4/100, Utility.deviceWidth*4/100, Utility.deviceWidth*4/100,0);
             imgBanner.setLayoutParams(params);
 
         }
@@ -52,7 +51,7 @@ public class RecommandationAdapter extends RecyclerView.Adapter<RecommandationAd
         holder.imgBanner.setTag(position);
 
         if(Utility.getDrawableFromAssets(context,"IMAGES/"+ Utility.deviceDensityImage + "/" +recommandations.get(position).getBanner()) != null) {
-            Bitmap bitmap = Utility.drawableToBitmap(context,(Utility.getDrawableFromAssets(context, "IMAGES/"+Utility.deviceDensityImage+"/"+ recommandations.get(position).getBanner())));
+            Bitmap bitmap = Utility.drawableToBitmap(context,(Utility.getDrawableFromAssets(context, "IMAGES/"+ Utility.deviceDensityImage+"/"+ recommandations.get(position).getBanner())));
             holder.imgBanner.setImageBitmap(bitmap);
 
 //            BitmapDrawable b = new BitmapDrawable(context.getResources(),bitmap);

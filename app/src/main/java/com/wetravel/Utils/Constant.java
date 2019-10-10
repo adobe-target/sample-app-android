@@ -51,4 +51,10 @@ public class Constant {
     public static final String shared_search_offers_filters         = "search_offers_filters";
     public static final String shared_seating_deals                 = "seating_deals";
     public static final String shared_payments_offers               = "payments_offers";
+    public static final String mbox_engage_home                     = "mbox_engage_home";
+    public static final String mbox_engage_search                   = "mbox_engage_search";
+    public static final String mbox_profile_offers                  = "mbox_profile_offers";
+    public static final String mbox_context_dest                    = "mbox_context_dest";
+    public static final String destination                          = "destination";
+    public static final String departure                            = "departure";
 }

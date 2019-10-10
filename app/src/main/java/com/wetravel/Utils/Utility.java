@@ -93,7 +93,7 @@ public class Utility {
 
     //Print Toast in application
     public static void showToast(Context context, String msg){
-        Toast.makeText(context,msg,Toast.LENGTH_SHORT).show();
+        Toast.makeText(context,msg,Toast.LENGTH_LONG).show();
     }
 
     //Get bitmap from assets folder

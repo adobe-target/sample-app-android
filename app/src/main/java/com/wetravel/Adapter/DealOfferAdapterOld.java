@@ -10,7 +10,6 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.wetravel.Controller.SeatingActivity;
 import com.wetravel.Controller.SeatingActivityOld;
 import com.wetravel.Models.Deal;
 import com.wetravel.R;
@@ -95,7 +94,7 @@ public class DealOfferAdapterOld extends RecyclerView.Adapter<DealOfferAdapterOl
         });
 
         if(Utility.getDrawableFromAssets(context,"IMAGES/"+ Utility.deviceDensityImage + "/" +deals.get(position).getDeal_image()) != null) {
-            Bitmap bitmap = Utility.drawableToBitmap(context,(Utility.getDrawableFromAssets(context, "IMAGES/"+Utility.deviceDensityImage+"/"+ deals.get(position).getDeal_image())));
+            Bitmap bitmap = Utility.drawableToBitmap(context,(Utility.getDrawableFromAssets(context, "IMAGES/"+ Utility.deviceDensityImage+"/"+ deals.get(position).getDeal_image())));
             holder.imgDeal.setImageBitmap(bitmap);
         }
 
@@ -106,7 +105,7 @@ public class DealOfferAdapterOld extends RecyclerView.Adapter<DealOfferAdapterOl
             holder.tvPrice.setText("$" + Integer.parseInt(deals.get(position).getDeal_price()));
         }
 
-        holder.rl.setPadding(0,Utility.deviceHeight*1/100,0,Utility.deviceHeight*1/100);
+        holder.rl.setPadding(0, Utility.deviceHeight*1/100,0, Utility.deviceHeight*1/100);
 
     }
 

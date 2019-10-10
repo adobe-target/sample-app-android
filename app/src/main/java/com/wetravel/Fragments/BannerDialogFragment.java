@@ -55,7 +55,7 @@ public class BannerDialogFragment extends DialogFragment {
 		imgBanner.setImageBitmap(bitmap);
 
 		ImageView imgCancel = dialog.findViewById(R.id.imgCancel);
-		imgCancel.setPadding(Utility.deviceWidth*10/100,Utility.deviceWidth*11/100,Utility.deviceWidth*10/100,Utility.deviceWidth*10/100);
+		imgCancel.setPadding(Utility.deviceWidth*10/100, Utility.deviceWidth*11/100, Utility.deviceWidth*10/100, Utility.deviceWidth*10/100);
 		imgCancel.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
@@ -64,7 +64,7 @@ public class BannerDialogFragment extends DialogFragment {
 		});
 
 		RelativeLayout rlItem = dialog.findViewById(R.id.rlItem);
-		rlItem.setPadding(Utility.deviceWidth*5/100,0,Utility.deviceWidth*5/100,Utility.deviceWidth*10/100);
+		rlItem.setPadding(Utility.deviceWidth*5/100,0, Utility.deviceWidth*5/100, Utility.deviceWidth*10/100);
 		dialog.show();
 	}
 }

@@ -2,8 +2,6 @@ package com.wetravel.Controller;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.Looper;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
@@ -21,9 +19,10 @@ import com.adobe.mobile.Target;
 import com.adobe.mobile.TargetPrefetchObject;
 import com.wetravel.Fragments.HomeFragment;
 import com.wetravel.Fragments.MyProfileFragment;
-import com.wetravel.Fragments.SettingsFragment;
 import com.wetravel.Fragments.MyTicketsFragment;
+import com.wetravel.Fragments.SettingsFragment;
 import com.wetravel.R;
+import com.wetravel.Utils.Constant;
 import com.wetravel.Utils.Utility;
 
 import java.util.ArrayList;
@@ -86,7 +85,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 //        drawerLayout.setScrimColor(Color.TRANSPARENT);
 
         rlHeader = findViewById(R.id.rlHeader);
-        rlHeader.setPadding(Utility.deviceWidth*55/1000,Utility.deviceWidth*3/100,Utility.deviceWidth*55/1000,Utility.deviceWidth*2/100);
+        rlHeader.setPadding(Utility.deviceWidth*55/1000, Utility.deviceWidth*3/100, Utility.deviceWidth*55/1000, Utility.deviceWidth*2/100);
 
         nView = findViewById(R.id.nView);
         nView.setNavigationItemSelectedListener(this);
@@ -96,14 +95,14 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         //Book Tickets
         rlBookTicket = nView.getHeaderView(0).findViewById(R.id.rlBookTicket);
         RelativeLayout.LayoutParams paramstvtvCode = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-        paramstvtvCode.setMargins(0,Utility.deviceWidth*14/100,0,0);
+        paramstvtvCode.setMargins(0, Utility.deviceWidth*14/100,0,0);
         rlBookTicket.setLayoutParams(paramstvtvCode);
         rlBookTicket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new HomeFragment(),"Home");
-                setSelected(ivBookTicketSelected,ivBookTicket,R.drawable.nav_home_selected);
+                setSelected(ivBookTicketSelected,ivBookTicket, R.drawable.nav_home_selected);
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -121,7 +120,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new MyTicketsFragment(),"MyTickets");
-                setSelected(ivMyTicketSelected,ivMyTicket,R.drawable.nav_my_ticket_selected);
+                setSelected(ivMyTicketSelected,ivMyTicket, R.drawable.nav_my_ticket_selected);
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -138,7 +137,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new MyProfileFragment(),"MyProfile");
-                setSelected(ivMyProfileSelected,ivMyProfile,R.drawable.nav_my_profile_selected);
+                setSelected(ivMyProfileSelected,ivMyProfile, R.drawable.nav_my_profile_selected);
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -155,7 +154,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new SettingsFragment(),"Settings");
-                setSelected(ivSettingsSelected,ivSettings,R.drawable.nav_setting_selected);
+                setSelected(ivSettingsSelected,ivSettings, R.drawable.nav_setting_selected);
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -165,7 +164,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         ivSettings = nView.getHeaderView(0).findViewById(R.id.ivSettings);
         ivSettings.setBackgroundResource(R.drawable.nav_setting_unselected);
 
-        setSelected(ivBookTicketSelected,ivBookTicket,R.drawable.nav_home_selected);
+        setSelected(ivBookTicketSelected,ivBookTicket, R.drawable.nav_home_selected);
     }
 
     public void setDefaultUnSelected(){
@@ -212,7 +211,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new MyProfileFragment(),"MyProfile");
-                setSelected(ivMyProfileSelected,ivMyProfile,R.drawable.nav_my_profile_selected);
+                setSelected(ivMyProfileSelected,ivMyProfile, R.drawable.nav_my_profile_selected);
             }
         });
     }
@@ -259,7 +258,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             }else{
                 setDefaultUnSelected();
                 attachFragment(new HomeFragment(),"Home");
-                setSelected(ivBookTicketSelected,ivBookTicket,R.drawable.nav_home_selected);
+                setSelected(ivBookTicketSelected,ivBookTicket, R.drawable.nav_home_selected);
 //                fm.popBackStack();
             }
         }
@@ -272,6 +271,7 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     protected void onResume() {
         super.onResume();
+        Config.collectLifecycleData(this);
         targetPrefetchContent();
     }
 
@@ -279,11 +279,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         List<TargetPrefetchObject> prefetchList = new ArrayList<>();
         Map<String, Object> profileParameters;
         profileParameters = new HashMap<String, Object>();
-        profileParameters.put("ProfileParam18Sep", "1");
+        //profileParameters.put("ProfileParam18Sep", "1");
         Map<String, Object> mboxParameters1 = new HashMap<String, Object>();
-        mboxParameters1.put("MboxParam18Sep", "1");
-        mboxParameters1.put("at_property", "7962ac68-17db-1579-408f-9556feccb477");
-        prefetchList.add(Target.createTargetPrefetchObject("mboxTest3", mboxParameters1));
+        //mboxParameters1.put("MboxParam18Sep", "1");
+        //mboxParameters1.put("at_property", "7962ac68-17db-1579-408f-9556feccb477");
+        prefetchList.add(Target.createTargetPrefetchObject(Constant.mbox_engage_home, mboxParameters1));
+        prefetchList.add(Target.createTargetPrefetchObject(Constant.mbox_engage_search, mboxParameters1));
         Target.TargetCallback<Boolean> prefetchStatusCallback = new Target.TargetCallback<Boolean>() {
             @Override
             public void call(final Boolean status) {
@@ -292,10 +293,30 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                     public void run() {
                         String cachingStatus = status ? "YES" : "NO";
                         System.out.println("Received Response from prefetch : " + cachingStatus);
+                        engageMessage();
                         setUp();
+
                     }
                 });
             }};
         Target.prefetchContent(prefetchList, profileParameters, prefetchStatusCallback);
+
+    }
+
+    public void engageMessage() {
+        Target.loadRequest(Constant.mbox_engage_home, "", null, null, null,
+                new Target.TargetCallback<String>(){
+                    @Override
+                    public void call(final String s) {
+                        //final ImageView mbox2 = (ImageView)findViewById(R.id.txtMbox2);
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                System.out.println("Engage Message : " + s);
+                                if(s != null && !s.isEmpty()) Utility.showToast(getApplicationContext(), s);
+                            }
+                        });
+                    }
+                });
     }
 }

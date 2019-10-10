@@ -14,6 +14,7 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.adobe.mobile.Target;
 import com.google.gson.Gson;
 import com.wetravel.Adapter.RecommandationAdapter;
 import com.wetravel.BackEnd.GetJSON;
@@ -25,6 +26,8 @@ import com.wetravel.Utils.Constant;
 import com.wetravel.Utils.Utility;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ThankYouActivity extends AppCompatActivity {
     TextView tvHeading;
@@ -122,6 +125,7 @@ public class ThankYouActivity extends AppCompatActivity {
     }
 
     public void setExtraValue(){
+        tvHeading.setText(""+Utility.getInSharedPreference(ThankYouActivity.this,Constant.departure,"")+" to "+""+Utility.getInSharedPreference(ThankYouActivity.this,Constant.destination,""));
         if(getIntent().getExtras() != null){
             tvHeading.setText(""+getIntent().getExtras().getString("departure")+" to "+getIntent().getExtras().getString("destination"));
             tvLocation.setText("Status "+getIntent().getExtras().getString("status")+" | "+getIntent().getExtras().getString("curSymbol")+getIntent().getExtras().getString("amount"));
@@ -135,18 +139,59 @@ public class ThankYouActivity extends AppCompatActivity {
         GetJSON getJSON = new GetJSON(this,Constant.json_recommandation) {
             @Override
             public void response(String response) {
-                AppDialogs.dialogLoaderHide();
                 try {
                     Gson gson = new Gson();
                     Recommandation recommandation = gson.fromJson(response,Recommandation.class);
-
-                    recommandations.addAll(recommandation.recommandations);
-                    recommandationbAdapter.notifyDataSetChanged();
+                    targetLoadRequest(recommandation.recommandations);
+//                    recommandations.addAll(filterRecommendationBasedOnOffer(recommandation.recommandations));
+//                    recommandationbAdapter.notifyDataSetChanged();
                 }catch (Exception e){
                     e.printStackTrace();
                 }
             }
         };
         getJSON.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
+    }
+
+    private void filterRecommendationBasedOnOffer(ArrayList<Recommandation> recommandations, String responseString) {
+        ArrayList<Recommandation> filteredRecommandations = new ArrayList<>();
+        for (int i=0; i<recommandations.size(); i++) {
+            if(recommandations.get(i).getBanner().equals("recommandation_one.png") && responseString.contains("SF")) {
+                filteredRecommandations.add(recommandations.get(i));
+            }
+            else if(recommandations.get(i).getBanner().equals("recommandation_two.png") && responseString.contains("Universal")) {
+                filteredRecommandations.add(recommandations.get(i));
+            }
+            else if(recommandations.get(i).getBanner().equals("recommandation_three.png") && responseString.contains("DJ")) {
+                filteredRecommandations.add(recommandations.get(i));
+            }
+        }
+        if(filteredRecommandations.isEmpty()){
+            this.recommandations.addAll(recommandations) ;
+        }
+        this.recommandations.addAll(filteredRecommandations);
+    }
+
+    public void targetLoadRequest(final ArrayList<Recommandation> recommandations) {
+        Map<String, Object> mboxParams = new HashMap<String, Object>();
+        mboxParams.put("locationSrc", (""+Utility.getInSharedPreference(ThankYouActivity.this,Constant.departure,"")));
+        mboxParams.put("locationDest",  (""+Utility.getInSharedPreference(ThankYouActivity.this,Constant.destination,"")));
+        Target.loadRequest(Constant.mbox_context_dest, "", null, null, mboxParams, new Target.TargetCallback<String>() {
+            @Override
+            public void call(final String response) {
+                try {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            AppDialogs.dialogLoaderHide();
+                            filterRecommendationBasedOnOffer(recommandations, response);
+                            recommandationbAdapter.notifyDataSetChanged();
+                        }
+                    });
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
     }
 }
