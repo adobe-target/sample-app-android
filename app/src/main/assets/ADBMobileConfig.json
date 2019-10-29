@@ -1,0 +1,39 @@
+{
+  "lastModified": "2019-06-21T13:11:45.810Z",
+  "marketingCloud": {
+    "org": "IMS_ORG: RECOMMENDED TO DOWNLOAD THIS FILE FROM MOBILE MARKETING PORTAL"
+  },
+  "target": {
+    "clientCode": "YOUR_CLIENT_CODE",
+    "timeout": 5
+  },
+  "audienceManager": {
+    "server": "",
+    "analyticsForwardingEnabled": false,
+    "timeout": 5
+  },
+  "acquisition": {
+    "server": "ACQUISITION_SERVER",
+    "appid": "APP_ID"
+  },
+  "analytics": {
+    "rsids": "ANALYTICS_REPORT_SUITE_ID",
+    "server": "ANALYTICS_SERVER",
+    "ssl": true,
+    "offlineEnabled": true,
+    "charset": "UTF-8",
+    "lifecycleTimeout": 300,
+    "privacyDefault": "optedin",
+    "batchLimit": 0,
+    "timezone": "PDT",
+    "timezoneOffset": -420,
+    "referrerTimeout": 0,
+    "backdateSessionInfo": false,
+    "poi": []
+  },
+  "messages": [],
+  "remotes": {
+    "analytics.poi": "ANALYTICS_POI_JSON_URL",
+    "messages": "MESSAGES_JSON_URL"
+  }
+}
