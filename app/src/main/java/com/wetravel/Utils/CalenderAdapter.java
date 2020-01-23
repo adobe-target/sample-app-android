@@ -1,7 +1,6 @@
 package com.wetravel.Utils;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;

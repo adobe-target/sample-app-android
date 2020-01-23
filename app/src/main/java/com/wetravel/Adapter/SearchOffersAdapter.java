@@ -7,8 +7,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.wetravel.Controller.SearchBusActivity;
 import com.wetravel.Models.Offer;
@@ -50,7 +48,7 @@ public class SearchOffersAdapter extends RecyclerView.Adapter<SearchOffersAdapte
         holder.imgBanner.setTag(position);
 
         if(Utility.getDrawableFromAssets(context,"IMAGES/"+ Utility.deviceDensityImage + "/" +offerList.get(position).getOffer_banner()) != null) {
-            Bitmap bitmap = Utility.drawableToBitmap(context,(Utility.getDrawableFromAssets(context, "IMAGES/"+Utility.deviceDensityImage+"/"+ offerList.get(position).getOffer_banner())));
+            Bitmap bitmap = Utility.drawableToBitmap(context,(Utility.getDrawableFromAssets(context, "IMAGES/"+ Utility.deviceDensityImage+"/"+ offerList.get(position).getOffer_banner())));
             holder.imgBanner.setImageBitmap(bitmap);
         }
 

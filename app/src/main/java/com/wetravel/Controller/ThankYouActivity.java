@@ -25,6 +25,8 @@ import com.wetravel.Utils.Constant;
 import com.wetravel.Utils.Utility;
 
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 
 public class ThankYouActivity extends AppCompatActivity {
     TextView tvHeading;
@@ -122,6 +124,7 @@ public class ThankYouActivity extends AppCompatActivity {
     }
 
     public void setExtraValue(){
+        tvHeading.setText(""+Utility.getInSharedPreference(ThankYouActivity.this,Constant.departure,"")+" to "+""+Utility.getInSharedPreference(ThankYouActivity.this,Constant.destination,""));
         if(getIntent().getExtras() != null){
             tvHeading.setText(""+getIntent().getExtras().getString("departure")+" to "+getIntent().getExtras().getString("destination"));
             tvLocation.setText("Status "+getIntent().getExtras().getString("status")+" | "+getIntent().getExtras().getString("curSymbol")+getIntent().getExtras().getString("amount"));
@@ -135,11 +138,10 @@ public class ThankYouActivity extends AppCompatActivity {
         GetJSON getJSON = new GetJSON(this,Constant.json_recommandation) {
             @Override
             public void response(String response) {
-                AppDialogs.dialogLoaderHide();
                 try {
                     Gson gson = new Gson();
                     Recommandation recommandation = gson.fromJson(response,Recommandation.class);
-
+                    AppDialogs.dialogLoaderHide();
                     recommandations.addAll(recommandation.recommandations);
                     recommandationbAdapter.notifyDataSetChanged();
                 }catch (Exception e){
@@ -149,4 +151,24 @@ public class ThankYouActivity extends AppCompatActivity {
         };
         getJSON.executeOnExecutor(AsyncTask.THREAD_POOL_EXECUTOR);
     }
+
+    private void filterRecommendationBasedOnOffer(ArrayList<Recommandation> recommandations, String responseString) {
+        ArrayList<Recommandation> filteredRecommandations = new ArrayList<>();
+        for (int i=0; i<recommandations.size(); i++) {
+            if(recommandations.get(i).getBanner().equals("recommandation_one.png") && responseString.contains("SF")) {
+                filteredRecommandations.add(recommandations.get(i));
+            }
+            else if(recommandations.get(i).getBanner().equals("recommandation_two.png") && responseString.contains("Universal")) {
+                filteredRecommandations.add(recommandations.get(i));
+            }
+            else if(recommandations.get(i).getBanner().equals("recommandation_three.png") && responseString.contains("DJ")) {
+                filteredRecommandations.add(recommandations.get(i));
+            }
+        }
+        if(filteredRecommandations.isEmpty()){
+            this.recommandations.addAll(recommandations) ;
+        }
+        this.recommandations.addAll(filteredRecommandations);
+    }
+
 }

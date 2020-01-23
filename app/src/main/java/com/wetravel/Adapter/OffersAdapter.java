@@ -47,7 +47,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewH
             tvName = itemView.findViewById(R.id.tvName);
             tvName.setTextSize(Utility.txtSize_15dp);
             tvName.setTypeface(Utility.font_roboto_regular);
-            tvName.setPadding(Utility.deviceWidth*15/100,Utility.deviceWidth*12/100,0,0);
+            tvName.setPadding(Utility.deviceWidth*15/100, Utility.deviceWidth*12/100,0,0);
 
             //Code layer Property
             tvCode = itemView.findViewById(R.id.tvCode);
@@ -55,7 +55,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewH
             tvCode.setTypeface(Utility.font_roboto_regular);
 
             RelativeLayout.LayoutParams paramstvtvCode = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-            paramstvtvCode.setMargins(Utility.deviceWidth*15/100,Utility.deviceWidth*27/100,0,0);
+            paramstvtvCode.setMargins(Utility.deviceWidth*15/100, Utility.deviceWidth*27/100,0,0);
             tvCode.setLayoutParams(paramstvtvCode);
 
             tvCode.getLayoutParams().width = Utility.deviceWidth*20/100;
@@ -65,10 +65,10 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewH
             tvSeeMore = itemView.findViewById(R.id.tvSeeMore);
             tvSeeMore.setTextSize(Utility.txtSize_12dp);
             tvSeeMore.setTypeface(Utility.font_roboto_regular);
-            tvSeeMore.setPadding(0,0,Utility.deviceWidth*6/100,0);
+            tvSeeMore.setPadding(0,0, Utility.deviceWidth*6/100,0);
 
             RelativeLayout.LayoutParams paramstvtvSeeMore = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-            paramstvtvSeeMore.setMargins(Utility.deviceWidth*15/100,Utility.deviceWidth*38/100,0,0);
+            paramstvtvSeeMore.setMargins(Utility.deviceWidth*15/100, Utility.deviceWidth*38/100,0,0);
             tvSeeMore.setLayoutParams(paramstvtvSeeMore);
 
             tvSeeMore.getLayoutParams().width = Utility.deviceWidth*30/100;
@@ -122,7 +122,7 @@ public class OffersAdapter extends RecyclerView.Adapter<OffersAdapter.OfferViewH
 
                 FragmentActivity activity = (FragmentActivity)context;
 
-                DialogFragment bannerDialogFragment = BannerDialogFragment.getInstance(context, "IMAGES/"+Utility.deviceDensityImage+"/"+ offerList.get(position).getAction_banner());
+                DialogFragment bannerDialogFragment = BannerDialogFragment.getInstance(context, "IMAGES/"+ Utility.deviceDensityImage+"/"+ offerList.get(position).getAction_banner());
 
                 FragmentTransaction fragmentTransaction = activity.getSupportFragmentManager().beginTransaction();
 

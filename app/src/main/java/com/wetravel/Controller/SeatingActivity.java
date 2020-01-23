@@ -87,7 +87,7 @@ public class SeatingActivity extends AppCompatActivity {
             public void run() {
                 getSeatingDetails();
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
     }
 
     public void setParamValue(){
@@ -105,7 +105,7 @@ public class SeatingActivity extends AppCompatActivity {
     public void initLayouts(){
         imgBack = findViewById(R.id.imgBack);
         imgBack.getLayoutParams().width = Utility.deviceWidth*6/100;
-        imgBack.setPadding(0,Utility.deviceWidth*22/1000,0,0);
+        imgBack.setPadding(0, Utility.deviceWidth*22/1000,0,0);
         imgBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -149,7 +149,7 @@ public class SeatingActivity extends AppCompatActivity {
 
         rlOfferPopup = findViewById(R.id.rlOfferPopup);
         RelativeLayout.LayoutParams paramstvtvSeeMore = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-        paramstvtvSeeMore.setMargins(Utility.deviceWidth*5/100,0,0,Utility.deviceWidth*1/100);
+        paramstvtvSeeMore.setMargins(Utility.deviceWidth*5/100,0,0, Utility.deviceWidth*1/100);
         rlOfferPopup.setLayoutParams(paramstvtvSeeMore);
         rlOfferPopup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -245,7 +245,7 @@ public class SeatingActivity extends AppCompatActivity {
                         AppDialogs.dialogLoaderHide();
                         startActivity(new Intent(SeatingActivity.this,PaymentActivity.class));
                     }
-                },Constant.delay_api);
+                }, Constant.delay_api);
             }
         });
         btnCheckout.setClickable(false);
@@ -264,11 +264,11 @@ public class SeatingActivity extends AppCompatActivity {
         tvAmount.setTypeface(Utility.font_roboto_bold);
 
         svSeats = findViewById(R.id.svSeats);
-        svSeats.setPadding(0,0,0,Utility.deviceWidth*42/100);
+        svSeats.setPadding(0,0,0, Utility.deviceWidth*42/100);
 
         rvDealOffer = findViewById(R.id.rvDealOffer);
 //        rvDealOffer.getLayoutParams().height = Utility.deviceWidth*56/100;
-        rvDealOffer.getLayoutParams().height = (int)animContainerHeight+Utility.deviceHeight*2/1000;
+        rvDealOffer.getLayoutParams().height = (int)animContainerHeight+ Utility.deviceHeight*2/1000;
 
         tvDealAmount = findViewById(R.id.tvDealAmount);
         tvDealAmount.setTextSize(Utility.txtSize_11dp);
@@ -315,7 +315,7 @@ public class SeatingActivity extends AppCompatActivity {
     }
 
     public void getSeatingDetails(){
-        GetJSON getJSON = new GetJSON(this,Constant.json_seating) {
+        GetJSON getJSON = new GetJSON(this, Constant.json_seating) {
             @Override
             public void response(String response) {
                 AppDialogs.dialogLoaderHide();
@@ -375,189 +375,189 @@ public class SeatingActivity extends AppCompatActivity {
 
     public void initLowerType(){
         imgLowerSeat1 = findViewById(R.id.imgLowerSeat1);
-        setSeatPositions(imgLowerSeat1,0,Utility.deviceWidth*25/100,0,0,Utility.deviceWidth*2/100);
+        setSeatPositions(imgLowerSeat1,0, Utility.deviceWidth*25/100,0,0, Utility.deviceWidth*2/100);
         setupClickEvent(imgLowerSeat1,0,lowerSeats);
 
         imgLowerSeat2 = findViewById(R.id.imgLowerSeat2);
-        setSeatPositions(imgLowerSeat2,R.id.imgLowerSeat1,Utility.deviceWidth*25/100,0,0,Utility.deviceWidth*2/100);
+        setSeatPositions(imgLowerSeat2, R.id.imgLowerSeat1, Utility.deviceWidth*25/100,0,0, Utility.deviceWidth*2/100);
         setupClickEvent(imgLowerSeat2,1,lowerSeats);
 
         imgLowerSeat3 = findViewById(R.id.imgLowerSeat3);
-        setSeatPositions(imgLowerSeat3,R.id.imgLowerSeat2,Utility.deviceWidth*25/100,0,0,Utility.deviceWidth*2/100);
+        setSeatPositions(imgLowerSeat3, R.id.imgLowerSeat2, Utility.deviceWidth*25/100,0,0, Utility.deviceWidth*2/100);
         setupClickEvent(imgLowerSeat3,2,lowerSeats);
 
         imgLowerSeat4 = findViewById(R.id.imgLowerSeat4);
-        setSeatPositions(imgLowerSeat4,R.id.imgLowerSeat3,Utility.deviceWidth*25/100,0,0,Utility.deviceWidth*40/1000);
+        setSeatPositions(imgLowerSeat4, R.id.imgLowerSeat3, Utility.deviceWidth*25/100,0,0, Utility.deviceWidth*40/1000);
         setupClickEvent(imgLowerSeat4,3,lowerSeats);
 
         imgLowerSeat5 = findViewById(R.id.imgLowerSeat5);
-        setSeatPositions(imgLowerSeat5,R.id.imgLowerSeat4,Utility.deviceWidth*25/100,0,0,0);
+        setSeatPositions(imgLowerSeat5, R.id.imgLowerSeat4, Utility.deviceWidth*25/100,0,0,0);
         setupClickEvent(imgLowerSeat5,4,lowerSeats);
 
         imgLowerSeat6 = findViewById(R.id.imgLowerSeat6);
-        setSeatPositions(imgLowerSeat6,R.id.imgLowerSeat4,Utility.deviceWidth*41/100,0,0,0);
+        setSeatPositions(imgLowerSeat6, R.id.imgLowerSeat4, Utility.deviceWidth*41/100,0,0,0);
         setupClickEvent(imgLowerSeat6,5,lowerSeats);
 
         imgLowerSeat7 = findViewById(R.id.imgLowerSeat7);
-        setSeatPositions(imgLowerSeat7,0,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat7,0, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat7,6,lowerSeats);
 
         imgLowerSeat8 = findViewById(R.id.imgLowerSeat8);
-        setSeatPositions(imgLowerSeat8,0,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat8,0, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat8,7,lowerSeats);
 
         imgLowerSeat9 = findViewById(R.id.imgLowerSeat9);
-        setSeatPositions(imgLowerSeat9,R.id.imgLowerSeat7,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat9, R.id.imgLowerSeat7, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat9,8,lowerSeats);
 
         imgLowerSeat10 = findViewById(R.id.imgLowerSeat10);
-        setSeatPositions(imgLowerSeat10,R.id.imgLowerSeat8,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat10, R.id.imgLowerSeat8, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat10,9,lowerSeats);
 
         imgLowerSeat11 = findViewById(R.id.imgLowerSeat11);
-        setSeatPositions(imgLowerSeat11,R.id.imgLowerSeat9,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat11, R.id.imgLowerSeat9, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat11,10,lowerSeats);
 
         imgLowerSeat12 = findViewById(R.id.imgLowerSeat12);
-        setSeatPositions(imgLowerSeat12,R.id.imgLowerSeat10,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat12, R.id.imgLowerSeat10, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat12,11,lowerSeats);
 
         imgLowerSeat13 = findViewById(R.id.imgLowerSeat13);
-        setSeatPositions(imgLowerSeat13,R.id.imgLowerSeat11,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat13, R.id.imgLowerSeat11, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat13,12,lowerSeats);
 
         imgLowerSeat14 = findViewById(R.id.imgLowerSeat14);
-        setSeatPositions(imgLowerSeat14,R.id.imgLowerSeat12,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat14, R.id.imgLowerSeat12, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat14,13,lowerSeats);
 
         imgLowerSeat15 = findViewById(R.id.imgLowerSeat15);
-        setSeatPositions(imgLowerSeat15,R.id.imgLowerSeat13,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat15, R.id.imgLowerSeat13, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat15,14,lowerSeats);
 
         imgLowerSeat16 = findViewById(R.id.imgLowerSeat16);
-        setSeatPositions(imgLowerSeat16,R.id.imgLowerSeat14,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat16, R.id.imgLowerSeat14, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat16,15,lowerSeats);
 
         imgLowerSeat17 = findViewById(R.id.imgLowerSeat17);
-        setSeatPositions(imgLowerSeat17,R.id.imgLowerSeat15,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat17, R.id.imgLowerSeat15, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat17,16,lowerSeats);
 
         imgLowerSeat18 = findViewById(R.id.imgLowerSeat18);
-        setSeatPositions(imgLowerSeat18,R.id.imgLowerSeat16,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat18, R.id.imgLowerSeat16, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat18,17,lowerSeats);
 
         imgLowerSeat19 = findViewById(R.id.imgLowerSeat19);
-        setSeatPositions(imgLowerSeat19,R.id.imgLowerSeat17,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat19, R.id.imgLowerSeat17, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat19,18,lowerSeats);
 
         imgLowerSeat20 = findViewById(R.id.imgLowerSeat20);
-        setSeatPositions(imgLowerSeat20,R.id.imgLowerSeat18,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgLowerSeat20, R.id.imgLowerSeat18, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgLowerSeat20,19,lowerSeats);
 
         imgLowerSeat21 = findViewById(R.id.imgLowerSeat21);
-        setSeatPositions(imgLowerSeat21,R.id.imgLowerSeat19,Utility.deviceWidth*6/100,0,0,0);
+        setSeatPositions(imgLowerSeat21, R.id.imgLowerSeat19, Utility.deviceWidth*6/100,0,0,0);
         setupClickEvent(imgLowerSeat21,20,lowerSeats);
 
         imgLowerSeat22 = findViewById(R.id.imgLowerSeat22);
-        setSeatPositions(imgLowerSeat22,R.id.imgLowerSeat19,Utility.deviceWidth*15/100,0,0,0);
+        setSeatPositions(imgLowerSeat22, R.id.imgLowerSeat19, Utility.deviceWidth*15/100,0,0,0);
         setupClickEvent(imgLowerSeat22,21,lowerSeats);
 
         imgLowerSeat23 = findViewById(R.id.imgLowerSeat23);
-        setSeatPositions(imgLowerSeat23,R.id.imgLowerSeat20,Utility.deviceWidth*24/100,0,0,0);
+        setSeatPositions(imgLowerSeat23, R.id.imgLowerSeat20, Utility.deviceWidth*24/100,0,0,0);
         setupClickEvent(imgLowerSeat23,22,lowerSeats);
     }
 
     public void initUpperType(){
         imgUpperSeat1 = findViewById(R.id.imgUpperSeat1);
-        setSeatPositions(imgUpperSeat1,0,Utility.deviceWidth*25/100,0,0,Utility.deviceWidth*2/100);
+        setSeatPositions(imgUpperSeat1,0, Utility.deviceWidth*25/100,0,0, Utility.deviceWidth*2/100);
         setupClickEvent(imgUpperSeat1,0,upperSeats);
 
         imgUpperSeat2 = findViewById(R.id.imgUpperSeat2);
-        setSeatPositions(imgUpperSeat2,R.id.imgUpperSeat1,Utility.deviceWidth*25/100,0,0,Utility.deviceWidth*2/100);
+        setSeatPositions(imgUpperSeat2, R.id.imgUpperSeat1, Utility.deviceWidth*25/100,0,0, Utility.deviceWidth*2/100);
         setupClickEvent(imgUpperSeat2,1,upperSeats);
 
         imgUpperSeat3 = findViewById(R.id.imgUpperSeat3);
-        setSeatPositions(imgUpperSeat3,R.id.imgUpperSeat2,Utility.deviceWidth*25/100,0,0,Utility.deviceWidth*2/100);
+        setSeatPositions(imgUpperSeat3, R.id.imgUpperSeat2, Utility.deviceWidth*25/100,0,0, Utility.deviceWidth*2/100);
         setupClickEvent(imgUpperSeat3,2,upperSeats);
 
         imgUpperSeat4 = findViewById(R.id.imgUpperSeat4);
-        setSeatPositions(imgUpperSeat4,R.id.imgUpperSeat3,Utility.deviceWidth*25/100,0,0,Utility.deviceWidth*40/1000);
+        setSeatPositions(imgUpperSeat4, R.id.imgUpperSeat3, Utility.deviceWidth*25/100,0,0, Utility.deviceWidth*40/1000);
         setupClickEvent(imgUpperSeat4,3,upperSeats);
 
         imgUpperSeat5 = findViewById(R.id.imgUpperSeat5);
-        setSeatPositions(imgUpperSeat5,R.id.imgUpperSeat4,Utility.deviceWidth*25/100,0,0,0);
+        setSeatPositions(imgUpperSeat5, R.id.imgUpperSeat4, Utility.deviceWidth*25/100,0,0,0);
         setupClickEvent(imgUpperSeat5,4,upperSeats);
 
         imgUpperSeat6 = findViewById(R.id.imgUpperSeat6);
-        setSeatPositions(imgUpperSeat6,R.id.imgUpperSeat4,Utility.deviceWidth*41/100,0,0,0);
+        setSeatPositions(imgUpperSeat6, R.id.imgUpperSeat4, Utility.deviceWidth*41/100,0,0,0);
         setupClickEvent(imgUpperSeat6,5,upperSeats);
 
         imgUpperSeat7 = findViewById(R.id.imgUpperSeat7);
-        setSeatPositions(imgUpperSeat7,0,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat7,0, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat7,6,upperSeats);
 
         imgUpperSeat8 = findViewById(R.id.imgUpperSeat8);
-        setSeatPositions(imgUpperSeat8,0,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat8,0, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat8,7,upperSeats);
 
         imgUpperSeat9 = findViewById(R.id.imgUpperSeat9);
-        setSeatPositions(imgUpperSeat9,R.id.imgUpperSeat7,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat9, R.id.imgUpperSeat7, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat9,8,upperSeats);
 
         imgUpperSeat10 = findViewById(R.id.imgUpperSeat10);
-        setSeatPositions(imgUpperSeat10,R.id.imgUpperSeat8,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat10, R.id.imgUpperSeat8, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat10,9,upperSeats);
 
         imgUpperSeat11 = findViewById(R.id.imgUpperSeat11);
-        setSeatPositions(imgUpperSeat11,R.id.imgUpperSeat9,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat11, R.id.imgUpperSeat9, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat11,10,upperSeats);
 
         imgUpperSeat12 = findViewById(R.id.imgUpperSeat12);
-        setSeatPositions(imgUpperSeat12,R.id.imgUpperSeat10,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat12, R.id.imgUpperSeat10, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat12,11,upperSeats);
 
         imgUpperSeat13 = findViewById(R.id.imgUpperSeat13);
-        setSeatPositions(imgUpperSeat13,R.id.imgUpperSeat11,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat13, R.id.imgUpperSeat11, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat13,12,upperSeats);
 
         imgUpperSeat14 = findViewById(R.id.imgUpperSeat14);
-        setSeatPositions(imgUpperSeat14,R.id.imgUpperSeat12,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat14, R.id.imgUpperSeat12, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat14,13,upperSeats);
 
         imgUpperSeat15 = findViewById(R.id.imgUpperSeat15);
-        setSeatPositions(imgUpperSeat15,R.id.imgUpperSeat13,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat15, R.id.imgUpperSeat13, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat15,14,upperSeats);
 
         imgUpperSeat16 = findViewById(R.id.imgUpperSeat16);
-        setSeatPositions(imgUpperSeat16,R.id.imgUpperSeat14,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat16, R.id.imgUpperSeat14, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat16,15,upperSeats);
 
         imgUpperSeat17 = findViewById(R.id.imgUpperSeat17);
-        setSeatPositions(imgUpperSeat17,R.id.imgUpperSeat15,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat17, R.id.imgUpperSeat15, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat17,16,upperSeats);
 
         imgUpperSeat18 = findViewById(R.id.imgUpperSeat18);
-        setSeatPositions(imgUpperSeat18,R.id.imgUpperSeat16,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat18, R.id.imgUpperSeat16, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat18,17,upperSeats);
 
         imgUpperSeat19 = findViewById(R.id.imgUpperSeat19);
-        setSeatPositions(imgUpperSeat19,R.id.imgUpperSeat17,Utility.deviceWidth*15/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat19, R.id.imgUpperSeat17, Utility.deviceWidth*15/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat19,18,upperSeats);
 
         imgUpperSeat20 = findViewById(R.id.imgUpperSeat20);
-        setSeatPositions(imgUpperSeat20,R.id.imgUpperSeat18,Utility.deviceWidth*24/100,0,0,Utility.deviceWidth*35/1000);
+        setSeatPositions(imgUpperSeat20, R.id.imgUpperSeat18, Utility.deviceWidth*24/100,0,0, Utility.deviceWidth*35/1000);
         setupClickEvent(imgUpperSeat20,19,upperSeats);
 
         imgUpperSeat21 = findViewById(R.id.imgUpperSeat21);
-        setSeatPositions(imgUpperSeat21,R.id.imgUpperSeat19,Utility.deviceWidth*6/100,0,0,0);
+        setSeatPositions(imgUpperSeat21, R.id.imgUpperSeat19, Utility.deviceWidth*6/100,0,0,0);
         setupClickEvent(imgUpperSeat21,20,upperSeats);
 
         imgUpperSeat22 = findViewById(R.id.imgUpperSeat22);
-        setSeatPositions(imgUpperSeat22,R.id.imgUpperSeat19,Utility.deviceWidth*15/100,0,0,0);
+        setSeatPositions(imgUpperSeat22, R.id.imgUpperSeat19, Utility.deviceWidth*15/100,0,0,0);
         setupClickEvent(imgUpperSeat22,21,upperSeats);
 
         imgUpperSeat23 = findViewById(R.id.imgUpperSeat23);
-        setSeatPositions(imgUpperSeat23,R.id.imgUpperSeat20,Utility.deviceWidth*24/100,0,0,0);
+        setSeatPositions(imgUpperSeat23, R.id.imgUpperSeat20, Utility.deviceWidth*24/100,0,0,0);
         setupClickEvent(imgUpperSeat23,22,upperSeats);
     }
 
@@ -739,7 +739,7 @@ public class SeatingActivity extends AppCompatActivity {
                     rlC.setClickable(false);
                 }
             }
-        },Constant.animation_duration);
+        }, Constant.animation_duration);
     }
 
     public void animationFromBottomToTop(final View view){

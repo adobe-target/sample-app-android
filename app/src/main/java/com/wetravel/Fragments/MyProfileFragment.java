@@ -8,13 +8,11 @@ import android.support.v4.app.Fragment;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.RelativeLayout;
 import android.widget.Spinner;
@@ -25,7 +23,6 @@ import com.wetravel.Adapter.LoyaltyAdapter;
 import com.wetravel.BackEnd.GetJSON;
 import com.wetravel.Controller.HomeActivity;
 import com.wetravel.Models.Loyalty;
-import com.wetravel.Models.Recommandation;
 import com.wetravel.R;
 import com.wetravel.Utils.AppDialogs;
 import com.wetravel.Utils.Constant;
@@ -56,7 +53,7 @@ public class MyProfileFragment extends Fragment {
             public void run() {
                 getLoyalty();
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
 
         return rootView;
     }
@@ -67,13 +64,13 @@ public class MyProfileFragment extends Fragment {
         progressBar = rootView.findViewById(R.id.progressBar);
 
         rlName = rootView.findViewById(R.id.rlName);
-        rlName.setPadding(Utility.deviceWidth*60/1000,0,Utility.deviceWidth*60/1000,0);
+        rlName.setPadding(Utility.deviceWidth*60/1000,0, Utility.deviceWidth*60/1000,0);
 
         rlAge = rootView.findViewById(R.id.rlAge);
-        rlAge.setPadding(Utility.deviceWidth*60/1000,0,Utility.deviceWidth*60/1000,0);
+        rlAge.setPadding(Utility.deviceWidth*60/1000,0, Utility.deviceWidth*60/1000,0);
 
         rlLoyaltyLevel = rootView.findViewById(R.id.rlLoyaltyLevel);
-        rlLoyaltyLevel.setPadding(Utility.deviceWidth*60/1000,0,Utility.deviceWidth*60/1000,0);
+        rlLoyaltyLevel.setPadding(Utility.deviceWidth*60/1000,0, Utility.deviceWidth*60/1000,0);
 
         txtName = rootView.findViewById(R.id.txtName);
         txtName.setTextSize(Utility.txtSize_12dp);
@@ -158,7 +155,7 @@ public class MyProfileFragment extends Fragment {
     }
 
     public void getLoyalty(){
-        GetJSON getJSON = new GetJSON(getActivity(),Constant.json_loyalty) {
+        GetJSON getJSON = new GetJSON(getActivity(), Constant.json_loyalty) {
             @Override
             public void response(String response) {
                 loaderVisibility(false);
@@ -167,7 +164,7 @@ public class MyProfileFragment extends Fragment {
                     Loyalty loyalty = gson.fromJson(response,Loyalty.class);
 
                     spnLoyaltyLevel.setAdapter(new LoyaltyAdapter(getActivity(),loyalty.loyalties));
-                    if(!Utility.getInSharedPreference(getActivity(),Constant.shared_loyalty_level,"").equalsIgnoreCase("")) {
+                    if(!Utility.getInSharedPreference(getActivity(), Constant.shared_loyalty_level,"").equalsIgnoreCase("")) {
                         spnLoyaltyLevel.setSelection(Integer.parseInt(Utility.getInSharedPreference(getActivity(), Constant.shared_loyalty_level, "")));
                     }
                 }catch (Exception e){
@@ -191,13 +188,13 @@ public class MyProfileFragment extends Fragment {
     }
 
     public void setSharedPreferenceValue(){
-        if(!Utility.getInSharedPreference(getActivity(),Constant.shared_name,"").equalsIgnoreCase("")){
-            edtName.setText(""+Utility.getInSharedPreference(getActivity(),Constant.shared_name,""));
+        if(!Utility.getInSharedPreference(getActivity(), Constant.shared_name,"").equalsIgnoreCase("")){
+            edtName.setText(""+ Utility.getInSharedPreference(getActivity(), Constant.shared_name,""));
             edtName.setSelection(edtName.getText().toString().length());
         }
 
-        if(!Utility.getInSharedPreference(getActivity(),Constant.shared_age,"").equalsIgnoreCase("")){
-            edtAge.setText(""+Utility.getInSharedPreference(getActivity(),Constant.shared_age,""));
+        if(!Utility.getInSharedPreference(getActivity(), Constant.shared_age,"").equalsIgnoreCase("")){
+            edtAge.setText(""+ Utility.getInSharedPreference(getActivity(), Constant.shared_age,""));
             edtAge.setSelection(edtAge.getText().toString().length());
         }
         changeAlertBackground(false);
@@ -210,14 +207,14 @@ public class MyProfileFragment extends Fragment {
             public void run() {
                 AppDialogs.dialogLoaderHide();
 
-                Utility.saveInSharedPreference(getActivity(),Constant.shared_name,edtName.getText().toString());
-                Utility.saveInSharedPreference(getActivity(),Constant.shared_age,edtAge.getText().toString());
-                Utility.saveInSharedPreference(getActivity(),Constant.shared_loyalty_level,""+loyaltyLevel);
+                Utility.saveInSharedPreference(getActivity(), Constant.shared_name,edtName.getText().toString());
+                Utility.saveInSharedPreference(getActivity(), Constant.shared_age,edtAge.getText().toString());
+                Utility.saveInSharedPreference(getActivity(), Constant.shared_loyalty_level,""+loyaltyLevel);
 
-                Utility.showToast(getActivity(),Constant.msg_profile_saved_successfully);
+                Utility.showToast(getActivity(), Constant.msg_profile_saved_successfully);
                 changeAlertBackground(false);
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
     }
 
     public void loaderVisibility(boolean b){

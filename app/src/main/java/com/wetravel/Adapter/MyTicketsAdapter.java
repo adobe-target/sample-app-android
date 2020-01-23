@@ -39,7 +39,7 @@ public class MyTicketsAdapter extends RecyclerView.Adapter<MyTicketsAdapter.Offe
 
             llHistory = itemView.findViewById(R.id.llHistory);
             RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-            params.setMargins(Utility.deviceWidth*55/1000,Utility.deviceWidth*4/100,Utility.deviceWidth*55/1000,0);
+            params.setMargins(Utility.deviceWidth*55/1000, Utility.deviceWidth*4/100, Utility.deviceWidth*55/1000,0);
             llHistory.setLayoutParams(params);
 
             tvLocation = itemView.findViewById(R.id.tvLocation);
@@ -84,7 +84,7 @@ public class MyTicketsAdapter extends RecyclerView.Adapter<MyTicketsAdapter.Offe
         holder.tvSeat.setText("Seat Number ("+myTickets.get(position).getSeat()+") | "+myTickets.get(position).getCurrency_symbol()+myTickets.get(position).getAmount());
         holder.tvTravel.setText(""+myTickets.get(position).getTravel_name()+"("+myTickets.get(position).getBus_info()+")");
 
-        holder.tvDate.setText("on "+Utility.changeDateFormat(Constant.date_ddmyyyy,Constant.date_ddmmmyyyy,myTickets.get(position).getDeparture_date()));
+        holder.tvDate.setText("on "+ Utility.changeDateFormat(Constant.date_ddmyyyy, Constant.date_ddmmmyyyy,myTickets.get(position).getDeparture_date()));
         holder.tvTime.setText("at "+myTickets.get(position).getDeparture_time());
         holder.tvHour.setText("For "+myTickets.get(position).getDuration()+" hrs");
 

@@ -8,12 +8,9 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
-import com.wetravel.Models.Offer;
 import com.wetravel.Models.Recommandation;
 import com.wetravel.R;
-import com.wetravel.Utils.AppDialogs;
 import com.wetravel.Utils.Utility;
 
 import java.util.ArrayList;
@@ -63,7 +60,7 @@ public class HistoryRecommendationsAdapter extends RecyclerView.Adapter<HistoryR
         }else{
             paramsrlItem.setMargins(-Utility.deviceWidth * 2 / 100, -Utility.deviceWidth * 5 / 100,-Utility.deviceWidth *10  / 100, -Utility.deviceWidth * 5 / 100);
         }*/
-        paramsrlItem.setMargins(0, 0,Utility.deviceWidth * 5 / 100,Utility.deviceWidth * 5 / 100);
+        paramsrlItem.setMargins(0, 0, Utility.deviceWidth * 5 / 100, Utility.deviceWidth * 5 / 100);
         holder.rlItem.setLayoutParams(paramsrlItem);
         holder.rlItem.getLayoutParams().width = Utility.deviceWidth * 85 / 100;
     }

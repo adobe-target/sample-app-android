@@ -9,12 +9,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.webkit.JavascriptInterface;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
-import android.widget.Toast;
 
 import com.wetravel.R;
 import com.wetravel.Utils.AppDialogs;
 import com.wetravel.Utils.Constant;
-import com.wetravel.Utils.Utility;
 
 public class PaymentActivity extends AppCompatActivity {
     WebView web;
@@ -62,7 +60,7 @@ public class PaymentActivity extends AppCompatActivity {
                 AppDialogs.dialogLoaderHide();
                 startActivity(new Intent(PaymentActivity.this,ThankYouActivity.class));
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
 
     }
 

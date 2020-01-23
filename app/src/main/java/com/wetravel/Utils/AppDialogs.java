@@ -4,7 +4,6 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.DisplayMetrics;
-import android.view.Gravity;
 import android.view.View;
 import android.view.Window;
 import android.view.animation.Animation;
@@ -36,7 +35,7 @@ public class AppDialogs {
         imgBanner.setImageBitmap(bitmap);
 
         ImageView imgCancel = dialog.findViewById(R.id.imgCancel);
-        imgCancel.setPadding(Utility.deviceWidth*10/100,Utility.deviceWidth*11/100,Utility.deviceWidth*10/100,Utility.deviceWidth*10/100);
+        imgCancel.setPadding(Utility.deviceWidth*10/100, Utility.deviceWidth*11/100, Utility.deviceWidth*10/100, Utility.deviceWidth*10/100);
         imgCancel.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -45,7 +44,7 @@ public class AppDialogs {
         });
 
         RelativeLayout rlItem = dialog.findViewById(R.id.rlItem);
-        rlItem.setPadding(Utility.deviceWidth*5/100,0,Utility.deviceWidth*5/100,Utility.deviceWidth*10/100);
+        rlItem.setPadding(Utility.deviceWidth*5/100,0, Utility.deviceWidth*5/100, Utility.deviceWidth*10/100);
 
     }
 
@@ -64,7 +63,7 @@ public class AppDialogs {
         dialogLoader.show();
 
         ImageView imgLoader = dialogLoader.findViewById(R.id.imgLoader);
-        Animation animation = AnimationUtils.loadAnimation(mContext,R.anim.loader_rotate);
+        Animation animation = AnimationUtils.loadAnimation(mContext, R.anim.loader_rotate);
         animation.setFillAfter(true);
         imgLoader.startAnimation(animation);
 

@@ -10,10 +10,8 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.wetravel.Controller.SearchBusActivity;
 import com.wetravel.Controller.SeatingActivity;
 import com.wetravel.Models.Deal;
-import com.wetravel.Models.Offer;
 import com.wetravel.R;
 import com.wetravel.Utils.Constant;
 import com.wetravel.Utils.Utility;
@@ -100,7 +98,7 @@ public class DealOfferAdapter extends RecyclerView.Adapter<DealOfferAdapter.Offe
         });
 
         if(Utility.getDrawableFromAssets(context,"IMAGES/"+ Utility.deviceDensityImage + "/" +deals.get(position).getDeal_image()) != null) {
-            Bitmap bitmap = Utility.drawableToBitmap(context,(Utility.getDrawableFromAssets(context, "IMAGES/"+Utility.deviceDensityImage+"/"+ deals.get(position).getDeal_image())));
+            Bitmap bitmap = Utility.drawableToBitmap(context,(Utility.getDrawableFromAssets(context, "IMAGES/"+ Utility.deviceDensityImage+"/"+ deals.get(position).getDeal_image())));
             holder.imgDeal.setImageBitmap(bitmap);
         }
 
@@ -111,7 +109,7 @@ public class DealOfferAdapter extends RecyclerView.Adapter<DealOfferAdapter.Offe
             holder.tvPrice.setText("$" + Integer.parseInt(deals.get(position).getDeal_price()));
         }
 
-        holder.rl.setPadding(0,Utility.deviceHeight*1/100,0,Utility.deviceHeight*1/100);
+        holder.rl.setPadding(0, Utility.deviceHeight*1/100,0, Utility.deviceHeight*1/100);
     }
 
     @Override

@@ -10,7 +10,6 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.wetravel.Controller.SearchBusActivity;
-import com.wetravel.Models.Offer;
 import com.wetravel.Models.Travel;
 import com.wetravel.R;
 import com.wetravel.Utils.Utility;
@@ -38,13 +37,13 @@ public class SearchTravelsAdapter extends RecyclerView.Adapter<SearchTravelsAdap
             super(itemView);
 
             rlOffers = itemView.findViewById(R.id.rlOffers);
-            rlOffers.setPadding(Utility.deviceWidth*3/100,Utility.deviceWidth*1/100,0,0);
+            rlOffers.setPadding(Utility.deviceWidth*3/100, Utility.deviceWidth*1/100,0,0);
 
             rlItem = itemView.findViewById(R.id.rlItem);
             RelativeLayout.LayoutParams paramsrlItem = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-            paramsrlItem.setMargins(Utility.deviceWidth*5/100,0,Utility.deviceWidth*5/100,Utility.deviceWidth*3/100);
+            paramsrlItem.setMargins(Utility.deviceWidth*5/100,0, Utility.deviceWidth*5/100, Utility.deviceWidth*3/100);
             rlItem.setLayoutParams(paramsrlItem);
-            rlItem.setPadding(Utility.deviceWidth*2/100,0,Utility.deviceWidth*2/100,Utility.deviceWidth*2/100);
+            rlItem.setPadding(Utility.deviceWidth*2/100,0, Utility.deviceWidth*2/100, Utility.deviceWidth*2/100);
 
             imgDeal = itemView.findViewById(R.id.imgDeal);
 
@@ -53,11 +52,11 @@ public class SearchTravelsAdapter extends RecyclerView.Adapter<SearchTravelsAdap
             tvOfferName.setTypeface(Utility.font_roboto_regular);
 
             rlTravelDetails = itemView.findViewById(R.id.rlTravelDetails);
-            rlTravelDetails.setPadding(Utility.deviceWidth*2/100,Utility.deviceWidth*2/100,Utility.deviceWidth*2/100,Utility.deviceWidth*2/100);
+            rlTravelDetails.setPadding(Utility.deviceWidth*2/100, Utility.deviceWidth*2/100, Utility.deviceWidth*2/100, Utility.deviceWidth*2/100);
 
             imgCheck = itemView.findViewById(R.id.imgCheck);
             RelativeLayout.LayoutParams paramsimgCheck= new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-            paramsimgCheck.setMargins(0,Utility.deviceWidth*15/1000,0,0);
+            paramsimgCheck.setMargins(0, Utility.deviceWidth*15/1000,0,0);
             imgCheck.setLayoutParams(paramsimgCheck);
 
             tvTravelName = itemView.findViewById(R.id.tvTravelName);

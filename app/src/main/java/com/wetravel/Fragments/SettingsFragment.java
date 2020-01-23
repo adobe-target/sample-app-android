@@ -57,7 +57,7 @@ public class SettingsFragment extends Fragment {
         setProperty(rlLaunchID,txtLaunchID,edtLaunchID);
 
         rlMboxInformations = rootView.findViewById(R.id.rlMboxInformations);
-        rlMboxInformations.setPadding(Utility.deviceWidth*60/1000,Utility.deviceWidth*3/100,Utility.deviceWidth*60/1000,0);
+        rlMboxInformations.setPadding(Utility.deviceWidth*60/1000, Utility.deviceWidth*3/100, Utility.deviceWidth*60/1000,0);
 
         txtMboxInformations = rootView.findViewById(R.id.txtMboxInformations);
         txtMboxInformations.setTextSize(Utility.txtSize_15dp);
@@ -93,7 +93,7 @@ public class SettingsFragment extends Fragment {
         });
 
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.WRAP_CONTENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-        params.setMargins(0,Utility.deviceHeight*72/100,0,0);
+        params.setMargins(0, Utility.deviceHeight*72/100,0,0);
         rlSave.setLayoutParams(params);
 
         tvSave = rootView.findViewById(R.id.tvSave);
@@ -117,7 +117,7 @@ public class SettingsFragment extends Fragment {
     }
 
     public void setProperty(RelativeLayout rl, TextView tv, EditText edt){
-        rl.setPadding(Utility.deviceWidth*60/1000,0,Utility.deviceWidth*60/1000,0);
+        rl.setPadding(Utility.deviceWidth*60/1000,0, Utility.deviceWidth*60/1000,0);
 
         tv.setTextSize(Utility.txtSize_12dp);
         tv.setTypeface(Utility.font_roboto_regular);
@@ -149,32 +149,32 @@ public class SettingsFragment extends Fragment {
             public void run() {
                 loaderVisibility(false);
 
-                if(!Utility.getInSharedPreference(getActivity(),Constant.shared_launch_id,"").equalsIgnoreCase("")){
-                    edtLaunchID.setText(""+Utility.getInSharedPreference(getActivity(),Constant.shared_launch_id,""));
+                if(!Utility.getInSharedPreference(getActivity(), Constant.shared_launch_id,"").equalsIgnoreCase("")){
+                    edtLaunchID.setText(""+ Utility.getInSharedPreference(getActivity(), Constant.shared_launch_id,""));
                     edtLaunchID.setSelection(edtLaunchID.getText().toString().length());
                 }
 
-                if(!Utility.getInSharedPreference(getActivity(),Constant.shared_home_offer_recommendation,"").equalsIgnoreCase("")){
-                    edtHomeOffers.setText(""+Utility.getInSharedPreference(getActivity(),Constant.shared_home_offer_recommendation,""));
+                if(!Utility.getInSharedPreference(getActivity(), Constant.shared_home_offer_recommendation,"").equalsIgnoreCase("")){
+                    edtHomeOffers.setText(""+ Utility.getInSharedPreference(getActivity(), Constant.shared_home_offer_recommendation,""));
                     edtHomeOffers.setSelection(edtHomeOffers.getText().toString().length());
                 }
 
-                if(!Utility.getInSharedPreference(getActivity(),Constant.shared_search_offers_filters,"").equalsIgnoreCase("")){
-                    edtSearchOffers.setText(""+Utility.getInSharedPreference(getActivity(),Constant.shared_search_offers_filters,""));
+                if(!Utility.getInSharedPreference(getActivity(), Constant.shared_search_offers_filters,"").equalsIgnoreCase("")){
+                    edtSearchOffers.setText(""+ Utility.getInSharedPreference(getActivity(), Constant.shared_search_offers_filters,""));
                     edtSearchOffers.setSelection(edtSearchOffers.getText().toString().length());
                 }
 
-                if(!Utility.getInSharedPreference(getActivity(),Constant.shared_seating_deals,"").equalsIgnoreCase("")){
-                    edtSeatingDeals.setText(""+Utility.getInSharedPreference(getActivity(),Constant.shared_seating_deals,""));
+                if(!Utility.getInSharedPreference(getActivity(), Constant.shared_seating_deals,"").equalsIgnoreCase("")){
+                    edtSeatingDeals.setText(""+ Utility.getInSharedPreference(getActivity(), Constant.shared_seating_deals,""));
                     edtSeatingDeals.setSelection(edtSeatingDeals.getText().toString().length());
                 }
 
-                if(!Utility.getInSharedPreference(getActivity(),Constant.shared_payments_offers,"").equalsIgnoreCase("")){
-                    edtPaymentsOffers.setText(""+Utility.getInSharedPreference(getActivity(),Constant.shared_payments_offers,""));
+                if(!Utility.getInSharedPreference(getActivity(), Constant.shared_payments_offers,"").equalsIgnoreCase("")){
+                    edtPaymentsOffers.setText(""+ Utility.getInSharedPreference(getActivity(), Constant.shared_payments_offers,""));
                     edtPaymentsOffers.setSelection(edtPaymentsOffers.getText().toString().length());
                 }
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
     }
 
     public void saveData(){
@@ -184,16 +184,16 @@ public class SettingsFragment extends Fragment {
             public void run() {
                 AppDialogs.dialogLoaderHide();
 
-                Utility.saveInSharedPreference(getActivity(),Constant.shared_launch_id,edtLaunchID.getText().toString());
-                Utility.saveInSharedPreference(getActivity(),Constant.shared_home_offer_recommendation,edtHomeOffers.getText().toString());
-                Utility.saveInSharedPreference(getActivity(),Constant.shared_search_offers_filters,edtSearchOffers.getText().toString());
-                Utility.saveInSharedPreference(getActivity(),Constant.shared_seating_deals,edtSeatingDeals.getText().toString());
-                Utility.saveInSharedPreference(getActivity(),Constant.shared_payments_offers,edtPaymentsOffers.getText().toString());
+                Utility.saveInSharedPreference(getActivity(), Constant.shared_launch_id,edtLaunchID.getText().toString());
+                Utility.saveInSharedPreference(getActivity(), Constant.shared_home_offer_recommendation,edtHomeOffers.getText().toString());
+                Utility.saveInSharedPreference(getActivity(), Constant.shared_search_offers_filters,edtSearchOffers.getText().toString());
+                Utility.saveInSharedPreference(getActivity(), Constant.shared_seating_deals,edtSeatingDeals.getText().toString());
+                Utility.saveInSharedPreference(getActivity(), Constant.shared_payments_offers,edtPaymentsOffers.getText().toString());
 
-                Utility.showToast(getActivity(),Constant.msg_settings_saved_successfully);
+                Utility.showToast(getActivity(), Constant.msg_settings_saved_successfully);
                 changeAlertBackground(false);
             }
-        },Constant.delay_api);
+        }, Constant.delay_api);
     }
 
     public void loaderVisibility(boolean b){

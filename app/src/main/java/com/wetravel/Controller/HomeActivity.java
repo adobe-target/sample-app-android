@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
@@ -15,14 +14,21 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.adobe.mobile.Config;
 import com.wetravel.Fragments.HomeFragment;
 import com.wetravel.Fragments.MyProfileFragment;
-import com.wetravel.Fragments.SettingsFragment;
 import com.wetravel.Fragments.MyTicketsFragment;
+import com.wetravel.Fragments.SettingsFragment;
 import com.wetravel.R;
+import com.wetravel.Utils.Constant;
 import com.wetravel.Utils.Utility;
 
-public class HomeActivity extends FragmentActivity implements NavigationView.OnNavigationItemSelectedListener {
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     ImageView ivMenu;
     TextView tvHeading;
     ImageView ivProfile;
@@ -40,6 +46,13 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        Config.setContext(this.getApplicationContext());
+        Config.setDebugLogging(true);
+    }
+
+
+
+    private void setUp() {
 //        requestWindowFeature(Window.FEATURE_NO_TITLE);
 //        getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,WindowManager.LayoutParams.FLAG_FULLSCREEN);
 //        this.getWindow().setStatusBarColor(getResources().getColor(R.color.color_E0E0E0));
@@ -49,9 +62,9 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
         initDrawer();
         initLayouts();
 
-        if(!getIntent().hasExtra("navigate")) {
+        if(getIntent().getExtras() == null) {
             attachFragment(new HomeFragment(), "Home");
-        }else if(getIntent().hasExtra("navigate")){
+        }else if(getIntent().getExtras().getString("navigate") != null){
             if(getIntent().getExtras().getString("navigate").equalsIgnoreCase("MyProfile")) {
                 setDefaultUnSelected();
                 attachFragment(new MyProfileFragment(), "MyProfile");
@@ -60,6 +73,7 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
         }else{
             attachFragment(new HomeFragment(), "Home");
         }
+//        Utility.isFutureDate("25-07-2019 23:45:00");
     }
 
     //Drawer initialization
@@ -69,7 +83,7 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
 //        drawerLayout.setScrimColor(Color.TRANSPARENT);
 
         rlHeader = findViewById(R.id.rlHeader);
-        rlHeader.setPadding(Utility.deviceWidth*55/1000,Utility.deviceWidth*3/100,Utility.deviceWidth*55/1000,Utility.deviceWidth*2/100);
+        rlHeader.setPadding(Utility.deviceWidth*55/1000, Utility.deviceWidth*3/100, Utility.deviceWidth*55/1000, Utility.deviceWidth*2/100);
 
         nView = findViewById(R.id.nView);
         nView.setNavigationItemSelectedListener(this);
@@ -79,14 +93,14 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
         //Book Tickets
         rlBookTicket = nView.getHeaderView(0).findViewById(R.id.rlBookTicket);
         RelativeLayout.LayoutParams paramstvtvCode = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT,RelativeLayout.LayoutParams.WRAP_CONTENT);
-        paramstvtvCode.setMargins(0,Utility.deviceWidth*14/100,0,0);
+        paramstvtvCode.setMargins(0, Utility.deviceWidth*14/100,0,0);
         rlBookTicket.setLayoutParams(paramstvtvCode);
         rlBookTicket.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new HomeFragment(),"Home");
-                setSelected(ivBookTicketSelected,ivBookTicket,R.drawable.nav_home_selected);
+                setSelected(ivBookTicketSelected,ivBookTicket, R.drawable.nav_home_selected);
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -104,7 +118,7 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new MyTicketsFragment(),"MyTickets");
-                setSelected(ivMyTicketSelected,ivMyTicket,R.drawable.nav_my_ticket_selected);
+                setSelected(ivMyTicketSelected,ivMyTicket, R.drawable.nav_my_ticket_selected);
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -121,7 +135,7 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new MyProfileFragment(),"MyProfile");
-                setSelected(ivMyProfileSelected,ivMyProfile,R.drawable.nav_my_profile_selected);
+                setSelected(ivMyProfileSelected,ivMyProfile, R.drawable.nav_my_profile_selected);
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -138,7 +152,7 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new SettingsFragment(),"Settings");
-                setSelected(ivSettingsSelected,ivSettings,R.drawable.nav_setting_selected);
+                setSelected(ivSettingsSelected,ivSettings, R.drawable.nav_setting_selected);
                 drawerLayout.closeDrawer(GravityCompat.START);
             }
         });
@@ -148,7 +162,7 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
         ivSettings = nView.getHeaderView(0).findViewById(R.id.ivSettings);
         ivSettings.setBackgroundResource(R.drawable.nav_setting_unselected);
 
-        setSelected(ivBookTicketSelected,ivBookTicket,R.drawable.nav_home_selected);
+        setSelected(ivBookTicketSelected,ivBookTicket, R.drawable.nav_home_selected);
     }
 
     public void setDefaultUnSelected(){
@@ -195,7 +209,7 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
             public void onClick(View v) {
                 setDefaultUnSelected();
                 attachFragment(new MyProfileFragment(),"MyProfile");
-                setSelected(ivMyProfileSelected,ivMyProfile,R.drawable.nav_my_profile_selected);
+                setSelected(ivMyProfileSelected,ivMyProfile, R.drawable.nav_my_profile_selected);
             }
         });
     }
@@ -242,7 +256,7 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
             }else{
                 setDefaultUnSelected();
                 attachFragment(new HomeFragment(),"Home");
-                setSelected(ivBookTicketSelected,ivBookTicket,R.drawable.nav_home_selected);
+                setSelected(ivBookTicketSelected,ivBookTicket, R.drawable.nav_home_selected);
 //                fm.popBackStack();
             }
         }
@@ -251,4 +265,11 @@ public class HomeActivity extends FragmentActivity implements NavigationView.OnN
     public void setHeader(String title){
         tvHeading.setText(title);
     }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        setUp();
+    }
+
 }
